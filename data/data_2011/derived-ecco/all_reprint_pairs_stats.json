@@ -1,0 +1,15 @@
+{
+  "total_pairs": 22530,
+  "min_block_length_used": 100,
+  "overlap_ratio_stats": {
+    "min": 0.0008,
+    "max": 1.0,
+    "mean": 0.954287687527739
+  },
+  "intersection_len_stats": {
+    "min": 1,
+    "max": 10672,
+    "mean": 632.5857079449622
+  },
+  "note": "All pairs have intersection_len > 0. Use filter_reprint_pairs.py to filter by overlap_threshold."
+}

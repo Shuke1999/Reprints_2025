@@ -1,0 +1,2976 @@
+[
+  {
+    "doc_id": "0036100901",
+    "trs_id": 4601,
+    "start": 71467,
+    "end": 73232,
+    "length": 1765,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0036100901",
+    "trs_id": 4601,
+    "start": 74316,
+    "end": 75673,
+    "length": 1357,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 7352,
+        "trs_end": 8724,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0036100901",
+    "trs_id": 4601,
+    "start": 837883,
+    "end": 837960,
+    "length": 77,
+    "source_match_count": 3,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0310-C00000-N0002426-00010-002",
+        "trs_id": 804893,
+        "trs_start": 12370,
+        "trs_end": 12442,
+        "title": "The Weekly Discovery of the Mystery of Iniquity",
+        "publication_date": "1681-02-05"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0036100902",
+    "trs_id": 4602,
+    "start": 1557,
+    "end": 2202,
+    "length": 645,
+    "source_match_count": 3,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_03_27-0004-005",
+        "trs_id": 1134479,
+        "trs_start": 4870,
+        "trs_end": 5137,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-03-27"
+      },
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_08_25-0004-004",
+        "trs_id": 1135032,
+        "trs_start": 4196,
+        "trs_end": 4508,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-08-25"
+      },
+      {
+        "doc_id": "WO2_B0317LONDAIAD_1751_05_30-0006-012",
+        "trs_id": 1306204,
+        "trs_start": 410,
+        "trs_end": 704,
+        "title": "London Daily Advertiser and Literary Gazette",
+        "publication_date": "1751-05-30"
+      }
+    ]
+  },
+  {
+    "doc_id": "0036100902",
+    "trs_id": 4602,
+    "start": 857550,
+    "end": 857692,
+    "length": 142,
+    "source_match_count": 25,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      }
+    ]
+  },
+  {
+    "doc_id": "0038900101",
+    "trs_id": 5012,
+    "start": 72274,
+    "end": 72464,
+    "length": 190,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 1855,
+        "trs_end": 2055,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0038900101",
+    "trs_id": 5012,
+    "start": 74021,
+    "end": 74292,
+    "length": 271,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 3601,
+        "trs_end": 3836,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0038900101",
+    "trs_id": 5012,
+    "start": 74547,
+    "end": 74972,
+    "length": 425,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4073,
+        "trs_end": 4500,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0038900101",
+    "trs_id": 5012,
+    "start": 75064,
+    "end": 77375,
+    "length": 2311,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0038900101",
+    "trs_id": 5012,
+    "start": 939137,
+    "end": 939207,
+    "length": 70,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0310-C00000-N0002426-00010-002",
+        "trs_id": 804893,
+        "trs_start": 12370,
+        "trs_end": 12442,
+        "title": "The Weekly Discovery of the Mystery of Iniquity",
+        "publication_date": "1681-02-05"
+      }
+    ]
+  },
+  {
+    "doc_id": "0038900102",
+    "trs_id": 5013,
+    "start": 850,
+    "end": 1038,
+    "length": 188,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_04_19-0004-004",
+        "trs_id": 1134570,
+        "trs_start": 12871,
+        "trs_end": 13072,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0038900102",
+    "trs_id": 5013,
+    "start": 54866,
+    "end": 55028,
+    "length": 162,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_08_16-0003-003",
+        "trs_id": 1135002,
+        "trs_start": 8216,
+        "trs_end": 8367,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-08-16"
+      }
+    ]
+  },
+  {
+    "doc_id": "0038900102",
+    "trs_id": 5013,
+    "start": 853698,
+    "end": 853865,
+    "length": 167,
+    "source_match_count": 28,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700201",
+    "trs_id": 7253,
+    "start": 61043,
+    "end": 62058,
+    "length": 1015,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 2957,
+        "trs_end": 3954,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700201",
+    "trs_id": 7253,
+    "start": 62698,
+    "end": 65004,
+    "length": 2306,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700201",
+    "trs_id": 7253,
+    "start": 65473,
+    "end": 67003,
+    "length": 1530,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 7167,
+        "trs_end": 8016,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 8032,
+        "trs_end": 8724,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700202",
+    "trs_id": 7254,
+    "start": 414342,
+    "end": 414420,
+    "length": 78,
+    "source_match_count": 3,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0310-C00000-N0002426-00010-002",
+        "trs_id": 804893,
+        "trs_start": 12370,
+        "trs_end": 12442,
+        "title": "The Weekly Discovery of the Mystery of Iniquity",
+        "publication_date": "1681-02-05"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700203",
+    "trs_id": 7255,
+    "start": 435,
+    "end": 761,
+    "length": 326,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0317LONDAIAD_1751_05_27-0005-005",
+        "trs_id": 1306175,
+        "trs_start": 8713,
+        "trs_end": 9020,
+        "title": "London Daily Advertiser and Literary Gazette",
+        "publication_date": "1751-05-27"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700204",
+    "trs_id": 7256,
+    "start": 470307,
+    "end": 470451,
+    "length": 144,
+    "source_match_count": 29,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700301",
+    "trs_id": 7257,
+    "start": 58211,
+    "end": 58636,
+    "length": 425,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0185DAILPOST_1742_02_04-0001-002",
+        "trs_id": 1010657,
+        "trs_start": 1366,
+        "trs_end": 1764,
+        "title": "Daily Post",
+        "publication_date": "1742-02-04"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700301",
+    "trs_id": 7257,
+    "start": 106411,
+    "end": 106605,
+    "length": 194,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 1855,
+        "trs_end": 2055,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700301",
+    "trs_id": 7257,
+    "start": 107543,
+    "end": 108271,
+    "length": 728,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 2957,
+        "trs_end": 3679,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700301",
+    "trs_id": 7257,
+    "start": 108786,
+    "end": 109213,
+    "length": 427,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4073,
+        "trs_end": 4500,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700301",
+    "trs_id": 7257,
+    "start": 109308,
+    "end": 111087,
+    "length": 1779,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700301",
+    "trs_id": 7257,
+    "start": 112250,
+    "end": 114076,
+    "length": 1826,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 7167,
+        "trs_end": 8956,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700301",
+    "trs_id": 7257,
+    "start": 114082,
+    "end": 114677,
+    "length": 595,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 8948,
+        "trs_end": 9543,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050700302",
+    "trs_id": 7258,
+    "start": 461927,
+    "end": 462004,
+    "length": 77,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0310-C00000-N0002426-00010-002",
+        "trs_id": 804893,
+        "trs_start": 12370,
+        "trs_end": 12442,
+        "title": "The Weekly Discovery of the Mystery of Iniquity",
+        "publication_date": "1681-02-05"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050800103",
+    "trs_id": 7259,
+    "start": 275,
+    "end": 589,
+    "length": 314,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_03_27-0004-005",
+        "trs_id": 1134479,
+        "trs_start": 4870,
+        "trs_end": 5137,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-03-27"
+      },
+      {
+        "doc_id": "WO2_B0317LONDAIAD_1751_05_27-0005-005",
+        "trs_id": 1306175,
+        "trs_start": 8713,
+        "trs_end": 9020,
+        "title": "London Daily Advertiser and Literary Gazette",
+        "publication_date": "1751-05-27"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050800103",
+    "trs_id": 7259,
+    "start": 612,
+    "end": 960,
+    "length": 348,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0317LONDAIAD_1751_05_30-0006-012",
+        "trs_id": 1306204,
+        "trs_start": 410,
+        "trs_end": 704,
+        "title": "London Daily Advertiser and Literary Gazette",
+        "publication_date": "1751-05-30"
+      }
+    ]
+  },
+  {
+    "doc_id": "0050800104",
+    "trs_id": 7260,
+    "start": 447629,
+    "end": 447759,
+    "length": 130,
+    "source_match_count": 11,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400101",
+    "trs_id": 11345,
+    "start": 71729,
+    "end": 72176,
+    "length": 447,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4073,
+        "trs_end": 4500,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400101",
+    "trs_id": 11345,
+    "start": 72376,
+    "end": 74544,
+    "length": 2168,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 5014,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400101",
+    "trs_id": 11345,
+    "start": 850680,
+    "end": 850756,
+    "length": 76,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0310-C00000-N0002426-00010-002",
+        "trs_id": 804893,
+        "trs_start": 12370,
+        "trs_end": 12442,
+        "title": "The Weekly Discovery of the Mystery of Iniquity",
+        "publication_date": "1681-02-05"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400102",
+    "trs_id": 11346,
+    "start": 1602,
+    "end": 2145,
+    "length": 543,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_08_25-0004-004",
+        "trs_id": 1135032,
+        "trs_start": 4196,
+        "trs_end": 4508,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-08-25"
+      },
+      {
+        "doc_id": "WO2_B0317LONDAIAD_1751_05_30-0006-012",
+        "trs_id": 1306204,
+        "trs_start": 410,
+        "trs_end": 704,
+        "title": "London Daily Advertiser and Literary Gazette",
+        "publication_date": "1751-05-30"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400102",
+    "trs_id": 11346,
+    "start": 862518,
+    "end": 862676,
+    "length": 158,
+    "source_match_count": 32,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0243-C00000-N0005885-00010-003",
+        "trs_id": 750446,
+        "trs_start": 1793,
+        "trs_end": 1865,
+        "title": "The Post Boy [1695]",
+        "publication_date": "1719-03-05"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400200",
+    "trs_id": 11347,
+    "start": 2581,
+    "end": 2862,
+    "length": 281,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_03_27-0004-005",
+        "trs_id": 1134479,
+        "trs_start": 4870,
+        "trs_end": 5137,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-03-27"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400200",
+    "trs_id": 11347,
+    "start": 60670,
+    "end": 60927,
+    "length": 257,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0319LONEVEPO_1742_02_02-0001-002",
+        "trs_id": 1329718,
+        "trs_start": 1219,
+        "trs_end": 1488,
+        "title": "London Evening Post",
+        "publication_date": "1742-02-02"
+      },
+      {
+        "doc_id": "WO2_B0185DAILPOST_1742_02_04-0001-002",
+        "trs_id": 1010657,
+        "trs_start": 1366,
+        "trs_end": 1532,
+        "title": "Daily Post",
+        "publication_date": "1742-02-04"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400200",
+    "trs_id": 11347,
+    "start": 60973,
+    "end": 61965,
+    "length": 992,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0319LONEVEPO_1742_02_02-0001-002",
+        "trs_id": 1329718,
+        "trs_start": 1477,
+        "trs_end": 2451,
+        "title": "London Evening Post",
+        "publication_date": "1742-02-02"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400200",
+    "trs_id": 11347,
+    "start": 107948,
+    "end": 108138,
+    "length": 190,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 1855,
+        "trs_end": 2055,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400200",
+    "trs_id": 11347,
+    "start": 109066,
+    "end": 109281,
+    "length": 215,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 2949,
+        "trs_end": 3165,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400200",
+    "trs_id": 11347,
+    "start": 110755,
+    "end": 112793,
+    "length": 2038,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400200",
+    "trs_id": 11347,
+    "start": 112974,
+    "end": 113186,
+    "length": 212,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 6643,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400200",
+    "trs_id": 11347,
+    "start": 116674,
+    "end": 116793,
+    "length": 119,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 10181,
+        "trs_end": 10284,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400200",
+    "trs_id": 11347,
+    "start": 963972,
+    "end": 964039,
+    "length": 67,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0074400200",
+    "trs_id": 11347,
+    "start": 1848869,
+    "end": 1849043,
+    "length": 174,
+    "source_match_count": 24,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      }
+    ]
+  },
+  {
+    "doc_id": "0093800201",
+    "trs_id": 14551,
+    "start": 70112,
+    "end": 72384,
+    "length": 2272,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 5282,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 5294,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0093800201",
+    "trs_id": 14551,
+    "start": 72870,
+    "end": 74447,
+    "length": 1577,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 7167,
+        "trs_end": 8724,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0093800202",
+    "trs_id": 14552,
+    "start": 416656,
+    "end": 416719,
+    "length": 63,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0093800203",
+    "trs_id": 14553,
+    "start": 1316,
+    "end": 1718,
+    "length": 402,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_03_27-0004-005",
+        "trs_id": 1134479,
+        "trs_start": 4870,
+        "trs_end": 5137,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-03-27"
+      },
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_08_25-0004-004",
+        "trs_id": 1135032,
+        "trs_start": 4196,
+        "trs_end": 4508,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-08-25"
+      }
+    ]
+  },
+  {
+    "doc_id": "0093800204",
+    "trs_id": 14554,
+    "start": 350631,
+    "end": 350757,
+    "length": 126,
+    "source_match_count": 13,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      }
+    ]
+  },
+  {
+    "doc_id": "0127602403",
+    "trs_id": 20411,
+    "start": 341716,
+    "end": 344322,
+    "length": 2606,
+    "source_match_count": 14,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0281JACOJOUR_1748_11_05-0004-004",
+        "trs_id": 1203176,
+        "trs_start": 5603,
+        "trs_end": 8305,
+        "title": "Jacobite's Journal",
+        "publication_date": "1748-11-05"
+      },
+      {
+        "doc_id": "WO2_B0185DAILPOST_1743_08_01-0002-003",
+        "trs_id": 1012321,
+        "trs_start": 7428,
+        "trs_end": 7540,
+        "title": "Daily Post",
+        "publication_date": "1743-08-01"
+      },
+      {
+        "doc_id": "WO2_B0185DAILPOST_1744_02_27-0002-003",
+        "trs_id": 1012961,
+        "trs_start": 11323,
+        "trs_end": 11545,
+        "title": "Daily Post",
+        "publication_date": "1744-02-27"
+      },
+      {
+        "doc_id": "WO2_B0185DAILPOST_1743_12_13-0002-004",
+        "trs_id": 1012711,
+        "trs_start": 6846,
+        "trs_end": 7125,
+        "title": "Daily Post",
+        "publication_date": "1743-12-13"
+      },
+      {
+        "doc_id": "WO2_B0185DAILPOST_1742_05_25-0001-003",
+        "trs_id": 1011001,
+        "trs_start": 235,
+        "trs_end": 429,
+        "title": "Daily Post",
+        "publication_date": "1742-05-25"
+      }
+    ]
+  },
+  {
+    "doc_id": "0127602403",
+    "trs_id": 20411,
+    "start": 344588,
+    "end": 344660,
+    "length": 72,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0340-C00000-N0001619-00040-001",
+        "trs_id": 835056,
+        "trs_start": 1048,
+        "trs_end": 1113,
+        "title": "The Whitehall Evening Post",
+        "publication_date": "1730-02-12"
+      }
+    ]
+  },
+  {
+    "doc_id": "0224500101",
+    "trs_id": 35474,
+    "start": 70833,
+    "end": 71239,
+    "length": 406,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4073,
+        "trs_end": 4500,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0224500101",
+    "trs_id": 35474,
+    "start": 71330,
+    "end": 73616,
+    "length": 2286,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0224500101",
+    "trs_id": 35474,
+    "start": 574669,
+    "end": 574737,
+    "length": 68,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0319LONEVEPO_1752_03_17-0001-002",
+        "trs_id": 1341409,
+        "trs_start": 2605,
+        "trs_end": 2674,
+        "title": "London Evening Post",
+        "publication_date": "1752-03-17"
+      }
+    ]
+  },
+  {
+    "doc_id": "0224500101",
+    "trs_id": 35474,
+    "start": 836593,
+    "end": 836670,
+    "length": 77,
+    "source_match_count": 3,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0310-C00000-N0002426-00010-002",
+        "trs_id": 804893,
+        "trs_start": 12370,
+        "trs_end": 12442,
+        "title": "The Weekly Discovery of the Mystery of Iniquity",
+        "publication_date": "1681-02-05"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0224500102",
+    "trs_id": 35475,
+    "start": 861805,
+    "end": 861958,
+    "length": 153,
+    "source_match_count": 30,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      }
+    ]
+  },
+  {
+    "doc_id": "0235200301",
+    "trs_id": 36919,
+    "start": 71266,
+    "end": 71616,
+    "length": 350,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 3601,
+        "trs_end": 3836,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0235200301",
+    "trs_id": 36919,
+    "start": 72300,
+    "end": 74582,
+    "length": 2282,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0235200301",
+    "trs_id": 36919,
+    "start": 75271,
+    "end": 76653,
+    "length": 1382,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 7352,
+        "trs_end": 8724,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0235200301",
+    "trs_id": 36919,
+    "start": 77920,
+    "end": 78707,
+    "length": 787,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 9929,
+        "trs_end": 10681,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0235200301",
+    "trs_id": 36919,
+    "start": 841169,
+    "end": 841259,
+    "length": 90,
+    "source_match_count": 3,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0310-C00000-N0002426-00010-002",
+        "trs_id": 804893,
+        "trs_start": 12370,
+        "trs_end": 12442,
+        "title": "The Weekly Discovery of the Mystery of Iniquity",
+        "publication_date": "1681-02-05"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0235200302",
+    "trs_id": 36920,
+    "start": 1954,
+    "end": 2285,
+    "length": 331,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0317LONDAIAD_1751_05_30-0006-012",
+        "trs_id": 1306204,
+        "trs_start": 410,
+        "trs_end": 704,
+        "title": "London Daily Advertiser and Literary Gazette",
+        "publication_date": "1751-05-30"
+      }
+    ]
+  },
+  {
+    "doc_id": "0235200302",
+    "trs_id": 36920,
+    "start": 484823,
+    "end": 484990,
+    "length": 167,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0574REMEMBRA_1749_04_15-0004-006",
+        "trs_id": 1830298,
+        "trs_start": 4681,
+        "trs_end": 4844,
+        "title": "Remembrancer (1747)",
+        "publication_date": "1749-04-15"
+      }
+    ]
+  },
+  {
+    "doc_id": "0235200302",
+    "trs_id": 36920,
+    "start": 1082415,
+    "end": 1082589,
+    "length": 174,
+    "source_match_count": 13,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0243-C00000-N0005885-00010-003",
+        "trs_id": 750446,
+        "trs_start": 1793,
+        "trs_end": 1851,
+        "title": "The Post Boy [1695]",
+        "publication_date": "1719-03-05"
+      }
+    ]
+  },
+  {
+    "doc_id": "0302000100",
+    "trs_id": 45101,
+    "start": 384592,
+    "end": 384659,
+    "length": 67,
+    "source_match_count": 4,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0421601400",
+    "trs_id": 58954,
+    "start": 384618,
+    "end": 384685,
+    "length": 67,
+    "source_match_count": 4,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0455700101",
+    "trs_id": 62706,
+    "start": 50910,
+    "end": 51097,
+    "length": 187,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0185DAILPOST_1742_02_04-0001-002",
+        "trs_id": 1010657,
+        "trs_start": 1366,
+        "trs_end": 1532,
+        "title": "Daily Post",
+        "publication_date": "1742-02-04"
+      }
+    ]
+  },
+  {
+    "doc_id": "0455700101",
+    "trs_id": 62706,
+    "start": 72549,
+    "end": 72739,
+    "length": 190,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 1855,
+        "trs_end": 2055,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0455700101",
+    "trs_id": 62706,
+    "start": 74819,
+    "end": 75239,
+    "length": 420,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4073,
+        "trs_end": 4500,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0455700101",
+    "trs_id": 62706,
+    "start": 75331,
+    "end": 77644,
+    "length": 2313,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0455700101",
+    "trs_id": 62706,
+    "start": 79035,
+    "end": 79742,
+    "length": 707,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 8032,
+        "trs_end": 8724,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 8474,
+        "trs_end": 8761,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0455700101",
+    "trs_id": 62706,
+    "start": 944625,
+    "end": 944696,
+    "length": 71,
+    "source_match_count": 3,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0310-C00000-N0002426-00010-002",
+        "trs_id": 804893,
+        "trs_start": 12370,
+        "trs_end": 12442,
+        "title": "The Weekly Discovery of the Mystery of Iniquity",
+        "publication_date": "1681-02-05"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0455700102",
+    "trs_id": 62707,
+    "start": 862241,
+    "end": 862385,
+    "length": 144,
+    "source_match_count": 41,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0243-C00000-N0005885-00010-003",
+        "trs_id": 750446,
+        "trs_start": 1787,
+        "trs_end": 1855,
+        "title": "The Post Boy [1695]",
+        "publication_date": "1719-03-05"
+      },
+      {
+        "doc_id": "NICNF0243-C00000-N0005885-00010-003",
+        "trs_id": 750446,
+        "trs_start": 1793,
+        "trs_end": 1865,
+        "title": "The Post Boy [1695]",
+        "publication_date": "1719-03-05"
+      },
+      {
+        "doc_id": "NICNF0243-C00000-N0005885-00010-003",
+        "trs_id": 750446,
+        "trs_start": 1789,
+        "trs_end": 1850,
+        "title": "The Post Boy [1695]",
+        "publication_date": "1719-03-05"
+      },
+      {
+        "doc_id": "NICNF0243-C00000-N0005885-00010-003",
+        "trs_id": 750446,
+        "trs_start": 1793,
+        "trs_end": 1851,
+        "title": "The Post Boy [1695]",
+        "publication_date": "1719-03-05"
+      }
+    ]
+  },
+  {
+    "doc_id": "0691100800",
+    "trs_id": 91493,
+    "start": 384888,
+    "end": 384955,
+    "length": 67,
+    "source_match_count": 4,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0913700101",
+    "trs_id": 109708,
+    "start": 70564,
+    "end": 70837,
+    "length": 273,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 3846,
+        "trs_end": 4073,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0913700101",
+    "trs_id": 109708,
+    "start": 71329,
+    "end": 73620,
+    "length": 2291,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0913700101",
+    "trs_id": 109708,
+    "start": 74093,
+    "end": 75662,
+    "length": 1569,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 7167,
+        "trs_end": 8724,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "0913700101",
+    "trs_id": 109708,
+    "start": 843707,
+    "end": 843784,
+    "length": 77,
+    "source_match_count": 3,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0310-C00000-N0002426-00010-002",
+        "trs_id": 804893,
+        "trs_start": 12370,
+        "trs_end": 12442,
+        "title": "The Weekly Discovery of the Mystery of Iniquity",
+        "publication_date": "1681-02-05"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "0913700102",
+    "trs_id": 109709,
+    "start": 1534,
+    "end": 2184,
+    "length": 650,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_08_25-0004-004",
+        "trs_id": 1135032,
+        "trs_start": 4196,
+        "trs_end": 4508,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-08-25"
+      },
+      {
+        "doc_id": "WO2_B0317LONDAIAD_1751_05_30-0006-012",
+        "trs_id": 1306204,
+        "trs_start": 410,
+        "trs_end": 704,
+        "title": "London Daily Advertiser and Literary Gazette",
+        "publication_date": "1751-05-30"
+      }
+    ]
+  },
+  {
+    "doc_id": "0913700102",
+    "trs_id": 109709,
+    "start": 857761,
+    "end": 857903,
+    "length": 142,
+    "source_match_count": 30,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      }
+    ]
+  },
+  {
+    "doc_id": "0913700102",
+    "trs_id": 109709,
+    "start": 887461,
+    "end": 887620,
+    "length": 159,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0182DAILGAZE_1744_04_28-0003-005",
+        "trs_id": 963057,
+        "trs_start": 6410,
+        "trs_end": 6558,
+        "title": "Daily Gazetteer",
+        "publication_date": "1744-04-28"
+      },
+      {
+        "doc_id": "WO2_B0185DAILPOST_1731_03_19-0002-004",
+        "trs_id": 1001366,
+        "trs_start": 19379,
+        "trs_end": 19499,
+        "title": "Daily Post",
+        "publication_date": "1731-03-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "1070400201",
+    "trs_id": 123555,
+    "start": 58191,
+    "end": 59599,
+    "length": 1408,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 121,
+        "trs_end": 1600,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1070400201",
+    "trs_id": 123555,
+    "start": 59607,
+    "end": 60706,
+    "length": 1099,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 1598,
+        "trs_end": 2738,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1070400201",
+    "trs_id": 123555,
+    "start": 62582,
+    "end": 64862,
+    "length": 2280,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1070400201",
+    "trs_id": 123555,
+    "start": 65336,
+    "end": 66906,
+    "length": 1570,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 7167,
+        "trs_end": 8724,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1070400201",
+    "trs_id": 123555,
+    "start": 826275,
+    "end": 826367,
+    "length": 92,
+    "source_match_count": 3,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0310-C00000-N0002426-00010-002",
+        "trs_id": 804893,
+        "trs_start": 12370,
+        "trs_end": 12442,
+        "title": "The Weekly Discovery of the Mystery of Iniquity",
+        "publication_date": "1681-02-05"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "1070400202",
+    "trs_id": 123556,
+    "start": 872929,
+    "end": 873080,
+    "length": 151,
+    "source_match_count": 30,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0243-C00000-N0005885-00010-003",
+        "trs_id": 750446,
+        "trs_start": 1787,
+        "trs_end": 1855,
+        "title": "The Post Boy [1695]",
+        "publication_date": "1719-03-05"
+      }
+    ]
+  },
+  {
+    "doc_id": "1070400202",
+    "trs_id": 123556,
+    "start": 903605,
+    "end": 903851,
+    "length": 246,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0185DAILPOST_1739_12_28-0002-004",
+        "trs_id": 1008179,
+        "trs_start": 7200,
+        "trs_end": 7494,
+        "title": "Daily Post",
+        "publication_date": "1739-12-28"
+      }
+    ]
+  },
+  {
+    "doc_id": "1070400202",
+    "trs_id": 123556,
+    "start": 904043,
+    "end": 904132,
+    "length": 89,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0160COSEENJO_1741_01_17-0003-004",
+        "trs_id": 887461,
+        "trs_start": 8364,
+        "trs_end": 8474,
+        "title": "Common Sense or The Englishman's Journal",
+        "publication_date": "1741-01-17"
+      }
+    ]
+  },
+  {
+    "doc_id": "1070400202",
+    "trs_id": 123556,
+    "start": 904211,
+    "end": 904465,
+    "length": 254,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0319LONEVEPO_1750_12_13-0004-006",
+        "trs_id": 1340153,
+        "trs_start": 74,
+        "trs_end": 312,
+        "title": "London Evening Post",
+        "publication_date": "1750-12-13"
+      }
+    ]
+  },
+  {
+    "doc_id": "1070400202",
+    "trs_id": 123556,
+    "start": 905673,
+    "end": 905756,
+    "length": 83,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0745MONTCHRO_1730_11_00-0023-005",
+        "trs_id": 1955563,
+        "trs_start": 14936,
+        "trs_end": 15002,
+        "title": "Monthly Chronicle",
+        "publication_date": "1730-01-01"
+      },
+      {
+        "doc_id": "WO2_B0745MONTCHRO_1730_11_00-0023-005",
+        "trs_id": 1955563,
+        "trs_start": 14917,
+        "trs_end": 15003,
+        "title": "Monthly Chronicle",
+        "publication_date": "1730-01-01"
+      }
+    ]
+  },
+  {
+    "doc_id": "1498700304",
+    "trs_id": 173581,
+    "start": 1826,
+    "end": 2177,
+    "length": 351,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_03_27-0004-005",
+        "trs_id": 1134479,
+        "trs_start": 4870,
+        "trs_end": 5137,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-03-27"
+      },
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_08_25-0004-004",
+        "trs_id": 1135032,
+        "trs_start": 4196,
+        "trs_end": 4508,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-08-25"
+      }
+    ]
+  },
+  {
+    "doc_id": "1498700304",
+    "trs_id": 173581,
+    "start": 160297,
+    "end": 160491,
+    "length": 194,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0319LONEVEPO_1752_03_17-0001-002",
+        "trs_id": 1341409,
+        "trs_start": 2456,
+        "trs_end": 2674,
+        "title": "London Evening Post",
+        "publication_date": "1752-03-17"
+      }
+    ]
+  },
+  {
+    "doc_id": "1498700304",
+    "trs_id": 173581,
+    "start": 398749,
+    "end": 398814,
+    "length": 65,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "1566600301",
+    "trs_id": 181917,
+    "start": 58496,
+    "end": 59242,
+    "length": 746,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0319LONEVEPO_1742_02_02-0001-002",
+        "trs_id": 1329718,
+        "trs_start": 1477,
+        "trs_end": 2451,
+        "title": "London Evening Post",
+        "publication_date": "1742-02-02"
+      }
+    ]
+  },
+  {
+    "doc_id": "1566600301",
+    "trs_id": 181917,
+    "start": 59709,
+    "end": 59951,
+    "length": 242,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0319LONEVEPO_1742_02_02-0001-002",
+        "trs_id": 1329718,
+        "trs_start": 2219,
+        "trs_end": 2451,
+        "title": "London Evening Post",
+        "publication_date": "1742-02-02"
+      }
+    ]
+  },
+  {
+    "doc_id": "1566600301",
+    "trs_id": 181917,
+    "start": 107353,
+    "end": 107546,
+    "length": 193,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 1855,
+        "trs_end": 2055,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1570800901",
+    "trs_id": 182454,
+    "start": 70321,
+    "end": 70661,
+    "length": 340,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 3601,
+        "trs_end": 3836,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1570800901",
+    "trs_id": 182454,
+    "start": 71345,
+    "end": 73626,
+    "length": 2281,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1570800901",
+    "trs_id": 182454,
+    "start": 74096,
+    "end": 75662,
+    "length": 1566,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 7167,
+        "trs_end": 8724,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1570800901",
+    "trs_id": 182454,
+    "start": 833440,
+    "end": 833519,
+    "length": 79,
+    "source_match_count": 3,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0310-C00000-N0002426-00010-002",
+        "trs_id": 804893,
+        "trs_start": 12370,
+        "trs_end": 12442,
+        "title": "The Weekly Discovery of the Mystery of Iniquity",
+        "publication_date": "1681-02-05"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "1570800902",
+    "trs_id": 182455,
+    "start": 1990,
+    "end": 2376,
+    "length": 386,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_03_27-0004-005",
+        "trs_id": 1134479,
+        "trs_start": 5038,
+        "trs_end": 5396,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-03-27"
+      }
+    ]
+  },
+  {
+    "doc_id": "1570800902",
+    "trs_id": 182455,
+    "start": 1102627,
+    "end": 1102807,
+    "length": 180,
+    "source_match_count": 34,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0243-C00000-N0005885-00010-003",
+        "trs_id": 750446,
+        "trs_start": 1793,
+        "trs_end": 1865,
+        "title": "The Post Boy [1695]",
+        "publication_date": "1719-03-05"
+      }
+    ]
+  },
+  {
+    "doc_id": "1612202900",
+    "trs_id": 186884,
+    "start": 381254,
+    "end": 381317,
+    "length": 63,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "1653000501",
+    "trs_id": 190682,
+    "start": 107901,
+    "end": 108339,
+    "length": 438,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4073,
+        "trs_end": 4500,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1723500601",
+    "trs_id": 198953,
+    "start": 75243,
+    "end": 75438,
+    "length": 195,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 1855,
+        "trs_end": 2055,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1723500601",
+    "trs_id": 198953,
+    "start": 77560,
+    "end": 77991,
+    "length": 431,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4073,
+        "trs_end": 4500,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1723500601",
+    "trs_id": 198953,
+    "start": 78086,
+    "end": 80441,
+    "length": 2355,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6859,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      },
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 4576,
+        "trs_end": 6627,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1723500601",
+    "trs_id": 198953,
+    "start": 83908,
+    "end": 84094,
+    "length": 186,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 10000,
+        "trs_end": 10180,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1723500601",
+    "trs_id": 198953,
+    "start": 84121,
+    "end": 84230,
+    "length": 109,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0167COUJOCRA_1741_10_10-0001-001",
+        "trs_id": 894271,
+        "trs_start": 10181,
+        "trs_end": 10284,
+        "title": "Country Journal or The Craftsman",
+        "publication_date": "1741-10-10"
+      }
+    ]
+  },
+  {
+    "doc_id": "1723500601",
+    "trs_id": 198953,
+    "start": 926009,
+    "end": 926093,
+    "length": 84,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0180DAILADVE_1745_08_23-0002-002",
+        "trs_id": 907108,
+        "trs_start": 3630,
+        "trs_end": 3728,
+        "title": "Daily Advertiser",
+        "publication_date": "1745-08-23"
+      }
+    ]
+  },
+  {
+    "doc_id": "1723500601",
+    "trs_id": 198953,
+    "start": 962228,
+    "end": 962292,
+    "length": 64,
+    "source_match_count": 2,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0005-003",
+        "trs_id": 2202890,
+        "trs_start": 8237,
+        "trs_end": 8312,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      },
+      {
+        "doc_id": "WO2_B1019OBSOR1702_1704_04_19-0003-002",
+        "trs_id": 2202889,
+        "trs_start": 8154,
+        "trs_end": 8229,
+        "title": "Observator (1702)",
+        "publication_date": "1704-04-19"
+      }
+    ]
+  },
+  {
+    "doc_id": "1723600102",
+    "trs_id": 198954,
+    "start": 704,
+    "end": 997,
+    "length": 293,
+    "source_match_count": 1,
+    "source_examples": [
+      {
+        "doc_id": "WO2_B0235GENEADVE_1750_08_25-0004-004",
+        "trs_id": 1135032,
+        "trs_start": 4196,
+        "trs_end": 4508,
+        "title": "General Advertiser (1744)",
+        "publication_date": "1750-08-25"
+      }
+    ]
+  },
+  {
+    "doc_id": "1723600102",
+    "trs_id": 198954,
+    "start": 875367,
+    "end": 875505,
+    "length": 138,
+    "source_match_count": 17,
+    "source_examples": [
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0078-C00000-N0004433-00020-001",
+        "trs_id": 674050,
+        "trs_start": 3522,
+        "trs_end": 3614,
+        "title": "The Evening Post",
+        "publication_date": "1716-10-18"
+      },
+      {
+        "doc_id": "NICNF0243-C00000-N0005885-00010-003",
+        "trs_id": 750446,
+        "trs_start": 1789,
+        "trs_end": 1850,
+        "title": "The Post Boy [1695]",
+        "publication_date": "1719-03-05"
+      }
+    ]
+  }
+]

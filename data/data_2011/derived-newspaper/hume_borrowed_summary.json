@@ -1,0 +1,298 @@
+{
+  "generated_at": "2025-11-20T14:03:58.422725+00:00",
+  "total_doc_trs_groups": 41,
+  "total_intervals": 115,
+  "total_interval_length": 71265,
+  "borrowed_interval_groups": 41,
+  "borrowed_intervals": 115,
+  "borrowed_interval_length": 71265,
+  "documents": [
+    {
+      "doc_id": "0036100901",
+      "trs_id": 4601,
+      "interval_count": 3,
+      "total_interval_length": 3199,
+      "average_interval_length": 1066.3333333333333
+    },
+    {
+      "doc_id": "0036100902",
+      "trs_id": 4602,
+      "interval_count": 2,
+      "total_interval_length": 787,
+      "average_interval_length": 393.5
+    },
+    {
+      "doc_id": "0038900101",
+      "trs_id": 5012,
+      "interval_count": 5,
+      "total_interval_length": 3267,
+      "average_interval_length": 653.4
+    },
+    {
+      "doc_id": "0038900102",
+      "trs_id": 5013,
+      "interval_count": 3,
+      "total_interval_length": 517,
+      "average_interval_length": 172.33333333333334
+    },
+    {
+      "doc_id": "0050700201",
+      "trs_id": 7253,
+      "interval_count": 3,
+      "total_interval_length": 4851,
+      "average_interval_length": 1617.0
+    },
+    {
+      "doc_id": "0050700202",
+      "trs_id": 7254,
+      "interval_count": 1,
+      "total_interval_length": 78,
+      "average_interval_length": 78.0
+    },
+    {
+      "doc_id": "0050700203",
+      "trs_id": 7255,
+      "interval_count": 1,
+      "total_interval_length": 326,
+      "average_interval_length": 326.0
+    },
+    {
+      "doc_id": "0050700204",
+      "trs_id": 7256,
+      "interval_count": 1,
+      "total_interval_length": 144,
+      "average_interval_length": 144.0
+    },
+    {
+      "doc_id": "0050700301",
+      "trs_id": 7257,
+      "interval_count": 7,
+      "total_interval_length": 5974,
+      "average_interval_length": 853.4285714285714
+    },
+    {
+      "doc_id": "0050700302",
+      "trs_id": 7258,
+      "interval_count": 1,
+      "total_interval_length": 77,
+      "average_interval_length": 77.0
+    },
+    {
+      "doc_id": "0050800103",
+      "trs_id": 7259,
+      "interval_count": 2,
+      "total_interval_length": 662,
+      "average_interval_length": 331.0
+    },
+    {
+      "doc_id": "0050800104",
+      "trs_id": 7260,
+      "interval_count": 1,
+      "total_interval_length": 130,
+      "average_interval_length": 130.0
+    },
+    {
+      "doc_id": "0074400101",
+      "trs_id": 11345,
+      "interval_count": 3,
+      "total_interval_length": 2691,
+      "average_interval_length": 897.0
+    },
+    {
+      "doc_id": "0074400102",
+      "trs_id": 11346,
+      "interval_count": 2,
+      "total_interval_length": 701,
+      "average_interval_length": 350.5
+    },
+    {
+      "doc_id": "0074400200",
+      "trs_id": 11347,
+      "interval_count": 10,
+      "total_interval_length": 4545,
+      "average_interval_length": 454.5
+    },
+    {
+      "doc_id": "0093800201",
+      "trs_id": 14551,
+      "interval_count": 2,
+      "total_interval_length": 3849,
+      "average_interval_length": 1924.5
+    },
+    {
+      "doc_id": "0093800202",
+      "trs_id": 14552,
+      "interval_count": 1,
+      "total_interval_length": 63,
+      "average_interval_length": 63.0
+    },
+    {
+      "doc_id": "0093800203",
+      "trs_id": 14553,
+      "interval_count": 1,
+      "total_interval_length": 402,
+      "average_interval_length": 402.0
+    },
+    {
+      "doc_id": "0093800204",
+      "trs_id": 14554,
+      "interval_count": 1,
+      "total_interval_length": 126,
+      "average_interval_length": 126.0
+    },
+    {
+      "doc_id": "0127602403",
+      "trs_id": 20411,
+      "interval_count": 2,
+      "total_interval_length": 2678,
+      "average_interval_length": 1339.0
+    },
+    {
+      "doc_id": "0224500101",
+      "trs_id": 35474,
+      "interval_count": 4,
+      "total_interval_length": 2837,
+      "average_interval_length": 709.25
+    },
+    {
+      "doc_id": "0224500102",
+      "trs_id": 35475,
+      "interval_count": 1,
+      "total_interval_length": 153,
+      "average_interval_length": 153.0
+    },
+    {
+      "doc_id": "0235200301",
+      "trs_id": 36919,
+      "interval_count": 5,
+      "total_interval_length": 4891,
+      "average_interval_length": 978.2
+    },
+    {
+      "doc_id": "0235200302",
+      "trs_id": 36920,
+      "interval_count": 3,
+      "total_interval_length": 672,
+      "average_interval_length": 224.0
+    },
+    {
+      "doc_id": "0302000100",
+      "trs_id": 45101,
+      "interval_count": 1,
+      "total_interval_length": 67,
+      "average_interval_length": 67.0
+    },
+    {
+      "doc_id": "0421601400",
+      "trs_id": 58954,
+      "interval_count": 1,
+      "total_interval_length": 67,
+      "average_interval_length": 67.0
+    },
+    {
+      "doc_id": "0455700101",
+      "trs_id": 62706,
+      "interval_count": 6,
+      "total_interval_length": 3888,
+      "average_interval_length": 648.0
+    },
+    {
+      "doc_id": "0455700102",
+      "trs_id": 62707,
+      "interval_count": 1,
+      "total_interval_length": 144,
+      "average_interval_length": 144.0
+    },
+    {
+      "doc_id": "0691100800",
+      "trs_id": 91493,
+      "interval_count": 1,
+      "total_interval_length": 67,
+      "average_interval_length": 67.0
+    },
+    {
+      "doc_id": "0913700101",
+      "trs_id": 109708,
+      "interval_count": 4,
+      "total_interval_length": 4210,
+      "average_interval_length": 1052.5
+    },
+    {
+      "doc_id": "0913700102",
+      "trs_id": 109709,
+      "interval_count": 3,
+      "total_interval_length": 951,
+      "average_interval_length": 317.0
+    },
+    {
+      "doc_id": "1070400201",
+      "trs_id": 123555,
+      "interval_count": 5,
+      "total_interval_length": 6449,
+      "average_interval_length": 1289.8
+    },
+    {
+      "doc_id": "1070400202",
+      "trs_id": 123556,
+      "interval_count": 5,
+      "total_interval_length": 823,
+      "average_interval_length": 164.6
+    },
+    {
+      "doc_id": "1498700304",
+      "trs_id": 173581,
+      "interval_count": 3,
+      "total_interval_length": 610,
+      "average_interval_length": 203.33333333333334
+    },
+    {
+      "doc_id": "1566600301",
+      "trs_id": 181917,
+      "interval_count": 3,
+      "total_interval_length": 1181,
+      "average_interval_length": 393.6666666666667
+    },
+    {
+      "doc_id": "1570800901",
+      "trs_id": 182454,
+      "interval_count": 4,
+      "total_interval_length": 4266,
+      "average_interval_length": 1066.5
+    },
+    {
+      "doc_id": "1570800902",
+      "trs_id": 182455,
+      "interval_count": 2,
+      "total_interval_length": 566,
+      "average_interval_length": 283.0
+    },
+    {
+      "doc_id": "1612202900",
+      "trs_id": 186884,
+      "interval_count": 1,
+      "total_interval_length": 63,
+      "average_interval_length": 63.0
+    },
+    {
+      "doc_id": "1653000501",
+      "trs_id": 190682,
+      "interval_count": 1,
+      "total_interval_length": 438,
+      "average_interval_length": 438.0
+    },
+    {
+      "doc_id": "1723500601",
+      "trs_id": 198953,
+      "interval_count": 7,
+      "total_interval_length": 3424,
+      "average_interval_length": 489.14285714285717
+    },
+    {
+      "doc_id": "1723600102",
+      "trs_id": 198954,
+      "interval_count": 2,
+      "total_interval_length": 431,
+      "average_interval_length": 215.5
+    }
+  ]
+}

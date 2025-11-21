@@ -1,0 +1,361 @@
+{
+  "generated_at": "2025-11-20T14:23:39.743597+00:00",
+  "total_doc_trs_groups": 50,
+  "total_intervals": 3726,
+  "total_interval_length": 2674376,
+  "borrowed_interval_groups": 50,
+  "borrowed_intervals": 3726,
+  "borrowed_interval_length": 2674376,
+  "documents": [
+    {
+      "doc_id": "0036100901",
+      "trs_id": 4601,
+      "interval_count": 144,
+      "total_interval_length": 111860,
+      "average_interval_length": 776.8055555555555
+    },
+    {
+      "doc_id": "0036100902",
+      "trs_id": 4602,
+      "interval_count": 73,
+      "total_interval_length": 30355,
+      "average_interval_length": 415.82191780821915
+    },
+    {
+      "doc_id": "0038900101",
+      "trs_id": 5012,
+      "interval_count": 128,
+      "total_interval_length": 121077,
+      "average_interval_length": 945.9140625
+    },
+    {
+      "doc_id": "0038900102",
+      "trs_id": 5013,
+      "interval_count": 72,
+      "total_interval_length": 27313,
+      "average_interval_length": 379.34722222222223
+    },
+    {
+      "doc_id": "0050700201",
+      "trs_id": 7253,
+      "interval_count": 50,
+      "total_interval_length": 22265,
+      "average_interval_length": 445.3
+    },
+    {
+      "doc_id": "0050700202",
+      "trs_id": 7254,
+      "interval_count": 91,
+      "total_interval_length": 94230,
+      "average_interval_length": 1035.4945054945056
+    },
+    {
+      "doc_id": "0050700203",
+      "trs_id": 7255,
+      "interval_count": 43,
+      "total_interval_length": 14119,
+      "average_interval_length": 328.3488372093023
+    },
+    {
+      "doc_id": "0050700204",
+      "trs_id": 7256,
+      "interval_count": 34,
+      "total_interval_length": 14700,
+      "average_interval_length": 432.3529411764706
+    },
+    {
+      "doc_id": "0050700301",
+      "trs_id": 7257,
+      "interval_count": 50,
+      "total_interval_length": 25904,
+      "average_interval_length": 518.08
+    },
+    {
+      "doc_id": "0050700302",
+      "trs_id": 7258,
+      "interval_count": 86,
+      "total_interval_length": 92611,
+      "average_interval_length": 1076.8720930232557
+    },
+    {
+      "doc_id": "0050800103",
+      "trs_id": 7259,
+      "interval_count": 46,
+      "total_interval_length": 14437,
+      "average_interval_length": 313.8478260869565
+    },
+    {
+      "doc_id": "0050800104",
+      "trs_id": 7260,
+      "interval_count": 34,
+      "total_interval_length": 14181,
+      "average_interval_length": 417.0882352941176
+    },
+    {
+      "doc_id": "0074400101",
+      "trs_id": 11345,
+      "interval_count": 149,
+      "total_interval_length": 119981,
+      "average_interval_length": 805.2416107382551
+    },
+    {
+      "doc_id": "0074400102",
+      "trs_id": 11346,
+      "interval_count": 72,
+      "total_interval_length": 27480,
+      "average_interval_length": 381.6666666666667
+    },
+    {
+      "doc_id": "0074400200",
+      "trs_id": 11347,
+      "interval_count": 173,
+      "total_interval_length": 126546,
+      "average_interval_length": 731.4797687861271
+    },
+    {
+      "doc_id": "0093800201",
+      "trs_id": 14551,
+      "interval_count": 51,
+      "total_interval_length": 24828,
+      "average_interval_length": 486.8235294117647
+    },
+    {
+      "doc_id": "0093800202",
+      "trs_id": 14552,
+      "interval_count": 84,
+      "total_interval_length": 94318,
+      "average_interval_length": 1122.8333333333333
+    },
+    {
+      "doc_id": "0093800203",
+      "trs_id": 14553,
+      "interval_count": 59,
+      "total_interval_length": 22461,
+      "average_interval_length": 380.6949152542373
+    },
+    {
+      "doc_id": "0093800204",
+      "trs_id": 14554,
+      "interval_count": 29,
+      "total_interval_length": 13405,
+      "average_interval_length": 462.2413793103448
+    },
+    {
+      "doc_id": "0127602403",
+      "trs_id": 20411,
+      "interval_count": 16,
+      "total_interval_length": 7450,
+      "average_interval_length": 465.625
+    },
+    {
+      "doc_id": "0224500101",
+      "trs_id": 35474,
+      "interval_count": 143,
+      "total_interval_length": 118804,
+      "average_interval_length": 830.7972027972028
+    },
+    {
+      "doc_id": "0224500102",
+      "trs_id": 35475,
+      "interval_count": 70,
+      "total_interval_length": 28480,
+      "average_interval_length": 406.85714285714283
+    },
+    {
+      "doc_id": "0235200301",
+      "trs_id": 36919,
+      "interval_count": 138,
+      "total_interval_length": 118142,
+      "average_interval_length": 856.1014492753624
+    },
+    {
+      "doc_id": "0235200302",
+      "trs_id": 36920,
+      "interval_count": 85,
+      "total_interval_length": 36074,
+      "average_interval_length": 424.4
+    },
+    {
+      "doc_id": "0255100701",
+      "trs_id": 39623,
+      "interval_count": 13,
+      "total_interval_length": 5819,
+      "average_interval_length": 447.61538461538464
+    },
+    {
+      "doc_id": "0255100702",
+      "trs_id": 39624,
+      "interval_count": 25,
+      "total_interval_length": 8354,
+      "average_interval_length": 334.16
+    },
+    {
+      "doc_id": "0302000100",
+      "trs_id": 45101,
+      "interval_count": 79,
+      "total_interval_length": 82834,
+      "average_interval_length": 1048.5316455696202
+    },
+    {
+      "doc_id": "0375001000",
+      "trs_id": 53207,
+      "interval_count": 11,
+      "total_interval_length": 4905,
+      "average_interval_length": 445.90909090909093
+    },
+    {
+      "doc_id": "0379203102",
+      "trs_id": 53749,
+      "interval_count": 27,
+      "total_interval_length": 8850,
+      "average_interval_length": 327.77777777777777
+    },
+    {
+      "doc_id": "0409602200",
+      "trs_id": 57531,
+      "interval_count": 35,
+      "total_interval_length": 13724,
+      "average_interval_length": 392.1142857142857
+    },
+    {
+      "doc_id": "0421601400",
+      "trs_id": 58954,
+      "interval_count": 88,
+      "total_interval_length": 84532,
+      "average_interval_length": 960.5909090909091
+    },
+    {
+      "doc_id": "0441200400",
+      "trs_id": 61183,
+      "interval_count": 3,
+      "total_interval_length": 468,
+      "average_interval_length": 156.0
+    },
+    {
+      "doc_id": "0455700101",
+      "trs_id": 62706,
+      "interval_count": 153,
+      "total_interval_length": 126652,
+      "average_interval_length": 827.7908496732026
+    },
+    {
+      "doc_id": "0455700102",
+      "trs_id": 62707,
+      "interval_count": 75,
+      "total_interval_length": 32131,
+      "average_interval_length": 428.41333333333336
+    },
+    {
+      "doc_id": "0691100800",
+      "trs_id": 91493,
+      "interval_count": 79,
+      "total_interval_length": 83405,
+      "average_interval_length": 1055.759493670886
+    },
+    {
+      "doc_id": "0913700101",
+      "trs_id": 109708,
+      "interval_count": 142,
+      "total_interval_length": 117015,
+      "average_interval_length": 824.0492957746479
+    },
+    {
+      "doc_id": "0913700102",
+      "trs_id": 109709,
+      "interval_count": 76,
+      "total_interval_length": 29982,
+      "average_interval_length": 394.5
+    },
+    {
+      "doc_id": "1070400201",
+      "trs_id": 123555,
+      "interval_count": 144,
+      "total_interval_length": 110483,
+      "average_interval_length": 767.2430555555555
+    },
+    {
+      "doc_id": "1070400202",
+      "trs_id": 123556,
+      "interval_count": 84,
+      "total_interval_length": 31724,
+      "average_interval_length": 377.6666666666667
+    },
+    {
+      "doc_id": "1164300602",
+      "trs_id": 134330,
+      "interval_count": 32,
+      "total_interval_length": 11436,
+      "average_interval_length": 357.375
+    },
+    {
+      "doc_id": "1424100200",
+      "trs_id": 165387,
+      "interval_count": 72,
+      "total_interval_length": 81836,
+      "average_interval_length": 1136.611111111111
+    },
+    {
+      "doc_id": "1498700304",
+      "trs_id": 173581,
+      "interval_count": 76,
+      "total_interval_length": 86727,
+      "average_interval_length": 1141.1447368421052
+    },
+    {
+      "doc_id": "1566600301",
+      "trs_id": 181917,
+      "interval_count": 41,
+      "total_interval_length": 18772,
+      "average_interval_length": 457.8536585365854
+    },
+    {
+      "doc_id": "1570800901",
+      "trs_id": 182454,
+      "interval_count": 138,
+      "total_interval_length": 120152,
+      "average_interval_length": 870.6666666666666
+    },
+    {
+      "doc_id": "1570800902",
+      "trs_id": 182455,
+      "interval_count": 77,
+      "total_interval_length": 32756,
+      "average_interval_length": 425.4025974025974
+    },
+    {
+      "doc_id": "1612202900",
+      "trs_id": 186884,
+      "interval_count": 68,
+      "total_interval_length": 76220,
+      "average_interval_length": 1120.8823529411766
+    },
+    {
+      "doc_id": "1649800202",
+      "trs_id": 190435,
+      "interval_count": 21,
+      "total_interval_length": 7857,
+      "average_interval_length": 374.14285714285717
+    },
+    {
+      "doc_id": "1653000501",
+      "trs_id": 190682,
+      "interval_count": 36,
+      "total_interval_length": 21166,
+      "average_interval_length": 587.9444444444445
+    },
+    {
+      "doc_id": "1723500601",
+      "trs_id": 198953,
+      "interval_count": 135,
+      "total_interval_length": 125518,
+      "average_interval_length": 929.762962962963
+    },
+    {
+      "doc_id": "1723600102",
+      "trs_id": 198954,
+      "interval_count": 76,
+      "total_interval_length": 30037,
+      "average_interval_length": 395.2236842105263
+    }
+  ]
+}
