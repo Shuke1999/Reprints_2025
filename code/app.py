@@ -1,4 +1,5 @@
 import json
+import os
 import re
 import requests
 import pandas as pd
@@ -7,7 +8,26 @@ import streamlit as st
 import streamlit.components.v1 as components
 from pathlib import Path
 
-DATA_DIR = Path("/Users/shuke/Desktop/Reprints_2025/data")
+
+def _resolve_repo_root() -> Path:
+    """Resolve the project root (supports env override for Streamlit Cloud)."""
+    default_root = Path(__file__).resolve().parents[1]
+    override = os.environ.get("REPRINTS_REPO_ROOT")
+    if override:
+        return Path(override).expanduser().resolve()
+    return default_root
+
+
+def _resolve_data_dir(repo_root: Path) -> Path:
+    """Resolve the data directory with optional environment override."""
+    override = os.environ.get("REPRINTS_DATA_DIR")
+    if override:
+        return Path(override).expanduser().resolve()
+    return (repo_root / "data").resolve()
+
+
+REPO_ROOT = _resolve_repo_root()
+DATA_DIR = _resolve_data_dir(REPO_ROOT)
 DERIVED_ECCO_DIR = DATA_DIR / "data_2011" / "derived-ecco"
 DERIVED_NEWSPAPER_DIR = DATA_DIR / "data_2011" / "derived-newspaper"
 
