@@ -1,6 +1,3 @@
-{
-  "input_records": 20284,
-  "output_blocks": 9419,
-  "reduction": 10865,
-  "reduction_percentage": 53.56438572273713
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2aed4763f3c93a2cb77b3b9ee9c62281521a349f275c6494a96396b7784c9dfb
+size 120
