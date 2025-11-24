@@ -675,14 +675,19 @@ def render_network_view(blocks_data: list[dict] | None, data_type: str) -> None:
 
     default_items = min(20, max_items) if max_items >= slider_min else max_items
 
-    items_per_page = st.slider(
-        "Items per page",
-        min_value=slider_min,
-        max_value=max_items,
-        value=default_items,
-        step=slider_step,
-        key=f"network_pagination_{data_type}",
-    )
+    if max_items <= slider_min:
+        # Only one possible option; skip slider
+        items_per_page = max_items
+        st.caption(f"Items per page: {items_per_page} (only one option available)")
+    else:
+        items_per_page = st.slider(
+            "Items per page",
+            min_value=slider_min,
+            max_value=max_items,
+            value=default_items,
+            step=slider_step,
+            key=f"network_pagination_{data_type}",
+        )
     
     total_pages = (total_pairs + items_per_page - 1) // items_per_page
     if total_pages > 1:
