@@ -661,12 +661,26 @@ def render_network_view(blocks_data: list[dict] | None, data_type: str) -> None:
     # Pagination controls
     st.markdown("#### Reprint List")
     total_pairs = len(selected_essay["pairs"])
+    if total_pairs == 0:
+        st.info("No reprint pairs available for this essay.")
+        return
+
+    max_items = min(100, total_pairs)
+    if max_items <= 10:
+        slider_min = 1
+        slider_step = 1
+    else:
+        slider_min = 10
+        slider_step = 10
+
+    default_items = min(20, max_items) if max_items >= slider_min else max_items
+
     items_per_page = st.slider(
         "Items per page",
-        min_value=10,
-        max_value=min(100, total_pairs),
-        value=min(20, total_pairs),
-        step=10,
+        min_value=slider_min,
+        max_value=max_items,
+        value=default_items,
+        step=slider_step,
         key=f"network_pagination_{data_type}",
     )
     

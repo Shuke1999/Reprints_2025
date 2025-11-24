@@ -1134,13 +1134,54 @@ def render_block_pairs_page():
         render_block_comparison(newspaper_blocks_data, "newspaper")
 
 
+def _load_marked_issues() -> list[dict]:
+    """Load marked issues from file if exists."""
+    marked_issues_file = DATA_DIR / "marked_issues.json"
+    if marked_issues_file.exists():
+        try:
+            with open(marked_issues_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                return data.get("issues", [])
+        except Exception:
+            return []
+    return []
+
+
+def _save_marked_issues(issues: list[dict]) -> None:
+    """Save marked issues to file."""
+    marked_issues_file = DATA_DIR / "marked_issues.json"
+    try:
+        export_data = {
+            "last_updated": str(pd.Timestamp.now()),
+            "total_issues": len(issues),
+            "issues": issues,
+        }
+        with open(marked_issues_file, "w", encoding="utf-8") as f:
+            json.dump(export_data, f, indent=2, ensure_ascii=False)
+    except Exception as exc:
+        st.error(f"Failed to save marked issues: {exc}")
+
+
 def render_issue_tracking_page():
     """Track and export problematic entries."""
     st.header("Issue Tracking & Export", divider="rainbow")
     
     # Initialize session state for marked issues
     if "marked_issues" not in st.session_state:
-        st.session_state.marked_issues = []
+        st.session_state.marked_issues = _load_marked_issues()
+    
+    # Auto-save when marked_issues changes
+    if "last_saved_count" not in st.session_state:
+        st.session_state.last_saved_count = len(st.session_state.marked_issues)
+    
+    # Save if count changed
+    if len(st.session_state.marked_issues) != st.session_state.last_saved_count:
+        _save_marked_issues(st.session_state.marked_issues)
+        st.session_state.last_saved_count = len(st.session_state.marked_issues)
+    
+    # Debug: Show current marked issues count
+    if st.session_state.marked_issues:
+        st.sidebar.info(f"📌 {len(st.session_state.marked_issues)} issues marked")
     
     # Search interface
     st.markdown("#### Search Entry")
@@ -1206,21 +1247,27 @@ def render_issue_tracking_page():
                 dst_b = block_b.get("dst_doc_id", "N/A") if block_b else "N/A"
                 overlap = pair.get("overlap_ratio", 0)
                 
+                status_badge = "🔴 Marked" if is_marked else "⚪ Not marked"
                 st.markdown(
-                    f"**Entry {pair_idx + 1}:** "
+                    f"{status_badge} **Entry {pair_idx + 1}:** "
                     f"src_doc_id: `{pair.get('src_doc_id', 'N/A')}`, "
                     f"src_section_id: `{pair.get('src_section_id', 'N/A')}`, "
                     f"dst: {dst_a} <-> {dst_b}, "
                     f"overlap: {overlap:.4f}"
                 )
             with col2:
-                if st.checkbox(
-                    "Mark as issue",
-                    value=is_marked,
-                    key=f"issue_checkbox_{pair_id}",
-                ):
-                    # Add to marked issues if not already there
-                    if not is_marked:
+                if is_marked:
+                    if st.button("Unmark", key=f"unmark_{pair_id}"):
+                        st.session_state.marked_issues = [
+                            issue for issue in st.session_state.marked_issues
+                            if issue.get("id") != pair_id
+                        ]
+                        _save_marked_issues(st.session_state.marked_issues)
+                        st.session_state.last_saved_count = len(st.session_state.marked_issues)
+                        st.success(f"✅ Unmarked entry: {pair_id}")
+                        st.rerun()
+                else:
+                    if st.button("Mark", key=f"mark_{pair_id}"):
                         issue_entry = {
                             "id": pair_id,
                             "data_type": search_data_type,
@@ -1230,15 +1277,15 @@ def render_issue_tracking_page():
                             "pair": pair,
                             "marked_at": str(pd.Timestamp.now()),
                         }
-                        st.session_state.marked_issues.append(issue_entry)
-                        st.rerun()
-                else:
-                    # Remove from marked issues if it was marked
-                    if is_marked:
-                        st.session_state.marked_issues = [
-                            issue for issue in st.session_state.marked_issues
-                            if issue.get("id") != pair_id
-                        ]
+                        # Check if already exists to avoid duplicates
+                        existing_ids = [issue.get("id") for issue in st.session_state.marked_issues]
+                        if pair_id not in existing_ids:
+                            st.session_state.marked_issues.append(issue_entry)
+                            _save_marked_issues(st.session_state.marked_issues)
+                            st.session_state.last_saved_count = len(st.session_state.marked_issues)
+                            st.success(f"✅ Marked entry: {pair_id} (Total: {len(st.session_state.marked_issues)})")
+                        else:
+                            st.warning(f"Entry {pair_id} is already marked.")
                         st.rerun()
     elif search_button:
         st.info("No matching entries found.")
@@ -1247,8 +1294,22 @@ def render_issue_tracking_page():
     
     # Display marked issues
     st.markdown("#### Marked Issues")
-    if st.session_state.marked_issues:
-        st.info(f"Total marked issues: {len(st.session_state.marked_issues)}")
+    
+    # Always show count, even if 0
+    marked_count = len(st.session_state.marked_issues)
+    if marked_count > 0:
+        st.info(f"Total marked issues: {marked_count}")
+    else:
+        st.info("No issues marked yet. Use the search above to find and mark problematic entries.")
+    
+    # Debug info (optional)
+    if st.checkbox("Show debug info", key="show_debug_issues"):
+        st.json({
+            "marked_issues_count": marked_count,
+            "issue_ids": [issue.get("id") for issue in st.session_state.marked_issues]
+        })
+    
+    if marked_count > 0:
         
         # Show list of marked issues
         for idx, issue in enumerate(st.session_state.marked_issues):
@@ -1272,6 +1333,8 @@ def render_issue_tracking_page():
                         i for i in st.session_state.marked_issues
                         if i.get("id") != issue.get("id")
                     ]
+                    _save_marked_issues(st.session_state.marked_issues)
+                    st.session_state.last_saved_count = len(st.session_state.marked_issues)
                     st.rerun()
         
         st.divider()
@@ -1314,9 +1377,16 @@ def render_issue_tracking_page():
         # Clear all button
         if st.button("Clear All Marked Issues", key="clear_all_issues"):
             st.session_state.marked_issues = []
+            _save_marked_issues(st.session_state.marked_issues)
+            st.session_state.last_saved_count = 0
             st.rerun()
-    else:
-        st.info("No issues marked yet. Use the search above to find and mark problematic entries.")
+    
+    # Reload button
+    if st.button("🔄 Reload from file", key="reload_marked_issues"):
+        st.session_state.marked_issues = _load_marked_issues()
+        st.session_state.last_saved_count = len(st.session_state.marked_issues)
+        st.success(f"Reloaded {len(st.session_state.marked_issues)} marked issues from file.")
+        st.rerun()
 
 
 def main():
