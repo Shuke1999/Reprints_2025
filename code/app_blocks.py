@@ -113,8 +113,11 @@ def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None
     prod_id = config["prodId"]
     prefix = config["prefix"]
 
-    # Use articleAssetID to build the request
-    gale_doc_id = f"{prefix}{article_asset_id}" if collection == "burney" and not article_asset_id.startswith(prefix) else article_asset_id
+    # For Burney collection (W开头), add 'Z' prefix to articleAssetID before making request
+    if collection == "burney" and prefix and not article_asset_id.startswith(prefix):
+        gale_doc_id = f"{prefix}{article_asset_id}"
+    else:
+        gale_doc_id = article_asset_id
 
     target = (
         f"https://go.gale.com/ps/retrieve.do?"
