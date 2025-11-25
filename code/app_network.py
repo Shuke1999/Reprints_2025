@@ -1,3 +1,4 @@
+import gzip
 import json
 import os
 import re
@@ -185,6 +186,7 @@ def _load_newspaper_article_mapping() -> dict[str, dict[str, str]]:
         for entry in mapping_data:
             pages = entry.get("pages", [])
             for page in pages:
+                page_asset_id = page.get("pageAssetID")
                 articles = page.get("articles", [])
                 for article in articles:
                     article_id = article.get("articleID")
@@ -194,6 +196,8 @@ def _load_newspaper_article_mapping() -> dict[str, dict[str, str]]:
                         _NEWSPAPER_ARTICLE_MAPPING_CACHE[article_id] = {
                             "articleAssetID": article_asset_id,
                             "articleType": article_type or "Unknown",
+                            "pageAssetID": page_asset_id,
+                            "docId": article.get("docId"),
                         }
     except Exception as exc:
         st.warning(f"Failed to load newspaper article mapping: {exc}")
@@ -202,8 +206,42 @@ def _load_newspaper_article_mapping() -> dict[str, dict[str, str]]:
     return _NEWSPAPER_ARTICLE_MAPPING_CACHE
 
 
+def _normalize_doc_id(raw_doc_id: str | None, asset_id: str | None, collection: str) -> str | None:
+    if raw_doc_id:
+        return raw_doc_id.split("|", 1)[-1]
+    if not asset_id:
+        return None
+    upper = asset_id.upper()
+    if upper.startswith(("Z", "N")):
+        return asset_id
+    prefix = "Z" if collection == "burney" else "N" if collection == "nichols" else ""
+    return f"{prefix}{asset_id}" if prefix else asset_id
+
+
+def _find_image_in_toc(nodes: list | None, target_doc_id: str | None) -> str | None:
+    if not nodes or not target_doc_id:
+        return None
+    for node in nodes:
+        node_doc_id = node.get("docId")
+        if node_doc_id:
+            normalized = node_doc_id.split("|", 1)[-1]
+            if normalized == target_doc_id and node.get("image"):
+                return node["image"]
+        nested = _find_image_in_toc(node.get("subArticleDocuments"), target_doc_id)
+        if nested:
+            return nested
+    return None
+
+
+def _build_image_url(record_id: str | None) -> str | None:
+    if not record_id:
+        return None
+    separator = "&" if "?" in record_id else "?"
+    return f"https://luna.gale.com/imgsrv/FastFetch/UBER2/{record_id}{separator}format=jpeg"
+
+
 def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None) -> list[str]:
-    """Get newspaper image URLs using articleAssetID from newspaper_id_mapping.json."""
+    """Get newspaper image URLs by requesting Gale page and parsing dviResponse."""
     if not dst_doc_id:
         return []
 
@@ -218,10 +256,10 @@ def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None
         return []
 
     article_asset_id = article_info.get("articleAssetID")
-    article_type = article_info.get("articleType", "Unknown")
     if not article_asset_id:
         st.warning(f"articleAssetID not found for articleID: {article_id}")
         return []
+    page_asset_id = article_info.get("pageAssetID")
 
     collections = {
         "nichols": {"prodId": "NICN", "prefix": ""},
@@ -238,13 +276,16 @@ def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None
 
     config = collections.get(collection, collections["nichols"])
     prod_id = config["prodId"]
-    prefix = config["prefix"]
 
-    # For Burney collection (W开头), add 'Z' prefix to articleAssetID before making request
-    if collection == "burney" and prefix and not article_asset_id.startswith(prefix):
-        gale_doc_id = f"{prefix}{article_asset_id}"
-    else:
-        gale_doc_id = article_asset_id
+    doc_id_from_mapping = article_info.get("docId")
+    gale_doc_id = _normalize_doc_id(doc_id_from_mapping, article_asset_id, collection)
+
+    if not gale_doc_id and page_asset_id:
+        gale_doc_id = _normalize_doc_id(None, page_asset_id, collection)
+
+    if not gale_doc_id:
+        st.warning(f"Unable to derive Gale docId for articleID: {article_id}")
+        return []
 
     target = (
         f"https://go.gale.com/ps/retrieve.do?"
@@ -260,27 +301,40 @@ def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None
             "AppleWebKit/537.36 (KHTML, like Gecko) "
             "Chrome/120.0.0.0 Safari/537.36"
         ),
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Referer": "https://go.gale.com/",
-        "Connection": "keep-alive",
-        "Upgrade-Insecure-Requests": "1",
-        "Sec-Fetch-Dest": "document",
-        "Sec-Fetch-Mode": "navigate",
-        "Sec-Fetch-Site": "same-origin",
-        "Cache-Control": "max-age=0",
+        # Don't request compression to avoid decompression issues
     }
 
-    session = requests.Session()
-    session.headers.update(headers)
-    
     try:
-        response = session.get(target, timeout=30, allow_redirects=True)
+        response = requests.get(target, headers=headers, timeout=30, allow_redirects=True)
         response.raise_for_status()
-        html = response.text
+        
+        # Handle potential compression
+        content_encoding = response.headers.get('Content-Encoding', '').lower()
+        
+        if 'gzip' in content_encoding:
+            try:
+                html = gzip.decompress(response.content).decode('utf-8')
+            except Exception:
+                if response.encoding is None:
+                    response.encoding = 'utf-8'
+                html = response.text
+        else:
+            if response.encoding is None:
+                response.encoding = 'utf-8'
+            html = response.text
+        
+        # Check if HTML looks like compressed data
+        if html and ord(html[0]) < 32 and html[0] not in '\n\r\t':
+            try:
+                html = gzip.decompress(response.content).decode('utf-8')
+            except Exception:
+                pass
+                
     except requests.exceptions.RequestException as e:
-        raise RuntimeError(f"Failed to fetch HTML from Gale: {e}")
+        st.error(f"Failed to fetch HTML from Gale: {e}")
+        return []
 
     # Try multiple patterns to find dviResponse
     patterns = [
@@ -298,14 +352,8 @@ def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None
             break
     
     if not match:
-        # Debug: log a snippet of HTML to help diagnose
-        html_snippet = html[:2000] if len(html) > 2000 else html
-        raise RuntimeError(
-            f"dviResponse object not found in retrieved HTML. "
-            f"HTML length: {len(html)}, Status: {response.status_code}, "
-            f"URL: {target[:100]}... "
-            f"HTML snippet: {html_snippet[:500]}"
-        )
+        st.warning(f"dviResponse object not found in retrieved HTML for articleID: {article_id}")
+        return []
 
     obj_text = match.group(1)
     sanitized = re.sub(r",\s*}", "}", obj_text)
@@ -314,20 +362,30 @@ def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None
     try:
         dvi_response = json.loads(sanitized.replace("'", '"'))
     except Exception:
-        dvi_response = eval(sanitized)  # noqa: S307
+        try:
+            dvi_response = eval(sanitized)  # noqa: S307
+        except Exception:
+            st.warning(f"Failed to parse dviResponse for articleID: {article_id}")
+            return []
 
     if not isinstance(dvi_response.get("pageDocuments"), list):
-        raise RuntimeError("dviResponse.pageDocuments missing or not an array")
+        st.warning(f"dviResponse.pageDocuments missing or not an array for articleID: {article_id}")
+        return []
+
+    toc = dvi_response.get("articleTableOfContents", [])
+    image_id = _find_image_in_toc(toc, gale_doc_id)
+    if image_id:
+        url = _build_image_url(image_id)
+        if url:
+            return [url]
 
     image_list = dvi_response.get("imageList", [])
     if isinstance(image_list, list):
         current_article_images = [img for img in image_list if img.get("currentArticle")]
         image_urls: list[str] = []
         for image in current_article_images:
-            image_id = image.get("recordId")
-            if image_id:
-                separator = "&" if "?" in image_id else "?"
-                url = f"https://luna.gale.com/imgsrv/FastFetch/UBER2/{image_id}{separator}format=jpeg"
+            url = _build_image_url(image.get("recordId"))
+            if url:
                 image_urls.append(url)
         if image_urls:
             return image_urls
@@ -367,9 +425,15 @@ def _render_newspaper_preview(dst_doc_id: str | None, src_section_id: str | None
             return
 
     if image_urls:
-        st.success(f"Fetched {len(image_urls)} images")
+        st.success(f"Fetched {len(image_urls)} image(s)")
         for idx, img_url in enumerate(image_urls):
-            st.image(img_url, caption=f"{label} - Image {idx + 1}", use_container_width=True)
+            st.markdown(f"**{label} - Image {idx + 1}**")
+            try:
+                st.image(img_url, caption=f"{label} - Image {idx + 1}", use_container_width=True)
+            except Exception as exc:
+                st.warning(f"Failed to display image {idx + 1}: {exc}")
+                st.caption(f"Image URL: {img_url}")
+                st.markdown(f"[Open image URL]({img_url})")
     else:
         st.warning(f"No images found for {label} (article ID: {dst_doc_id})")
 
