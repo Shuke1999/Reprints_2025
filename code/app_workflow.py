@@ -26,6 +26,52 @@ DERIVED_ECCO_DIR = DATA_DIR / "data_2011" / "derived-ecco"
 DERIVED_NEWSPAPER_DIR = DATA_DIR / "data_2011" / "derived-newspaper"
 
 
+def _render_block_stats(derived_dir: Path, dataset_label: str) -> None:
+    """Render block-level statistics from all_reprint_pairs_stats.json."""
+    stats_path = derived_dir / "all_reprint_pairs_stats.json"
+    enriched_path = derived_dir / "all_reprint_pairs_enriched.json"
+
+    if not stats_path.exists():
+        st.info(f"No block statistics file found for {dataset_label}.")
+        return
+
+    try:
+        with open(stats_path, "r", encoding="utf-8") as f:
+            stats = json.load(f)
+    except Exception as exc:
+        st.warning(f"Unable to load block stats for {dataset_label}: {exc}")
+        return
+
+    total_pairs = stats.get("total_pairs", 0)
+    overlap_stats = stats.get("overlap_ratio_stats", {})
+    intersection_stats = stats.get("intersection_len_stats", {})
+
+    cols = st.columns(4)
+    with cols[0]:
+        st.metric("Total block pairs", total_pairs)
+        if enriched_path.exists():
+            size_mb = enriched_path.stat().st_size / (1024 * 1024)
+            st.caption(f"`all_reprint_pairs_enriched.json` ({size_mb:.1f} MB)")
+    with cols[1]:
+        st.metric(
+            "Overlap ratio range",
+            f"{overlap_stats.get('min', 0):.2f} – {overlap_stats.get('max', 0):.2f}",
+        )
+        st.caption(f"mean ≈ {overlap_stats.get('mean', 0):.2f}")
+    with cols[2]:
+        st.metric(
+            "Intersection length range",
+            f"{intersection_stats.get('min', 0)} – {intersection_stats.get('max', 0)}",
+        )
+        st.caption(f"mean ≈ {intersection_stats.get('mean', 0):.0f}")
+    with cols[3]:
+        threshold = stats.get("min_block_length_used")
+        st.metric("Min block length threshold", threshold or "N/A")
+        note = stats.get("note")
+        if note:
+            st.caption(note)
+
+
 def render_statistics_section(derived_dir: Path, data_type: str) -> None:
     summary_path = derived_dir / "hume_borrowed_summary.json"
     if summary_path.exists():
@@ -145,6 +191,47 @@ def render_data_workflow_page() -> None:
 - `hume_outgoing_overlaps.json`: overlaps with borrowed intervals
 """
     )
+    render_block_generation_section()
+
+
+def render_block_generation_section() -> None:
+    st.header("Step 2: Build enriched block pairs", divider="rainbow")
+    st.markdown(
+        """
+We now turn the cleaned reuses into **enriched block pairs**—ready-made snippets that let us inspect
+how one Hume essay spreads across destinations.
+
+**What goes in**
+- Filtered reuse fragments from `*_original_only_merged.json`
+- Metadata bundles (`*_merged_with_urls.json`) with section headers, publication dates and Gale URLs
+- The enrichment scripts in `derived-ecco/` and `derived-newspaper/`
+
+**Pipeline at a glance**
+1. **Find overlaps** between destination snippets of the same target essay → record `overlap_ratio`,
+   `intersection_len`, and `min_block_length`.
+2. **Rebuild URL offsets** so merged fragments open the exact text range in Gale (`src_trs_*`, `dst_trs_*`).
+3. **Attach metadata** such as section headers, publication dates, and (for newspapers) `src_section_id`
+   for image retrieval.
+4. **Save to disk** as `all_reprint_pairs.json` + `all_reprint_pairs_enriched.json`, powering the Block
+   Comparison and Network pages.
+"""
+    )
+
+    stats_tab1, stats_tab2 = st.tabs(["ECCO-ECCO block stats", "ECCO-Newspaper block stats"])
+    with stats_tab1:
+        _render_block_stats(DERIVED_ECCO_DIR, "ECCO-ECCO")
+    with stats_tab2:
+        _render_block_stats(DERIVED_NEWSPAPER_DIR, "ECCO-Newspaper")
+
+    with st.expander("Data dictionary (quick reference)", expanded=False):
+        st.markdown(
+            """
+- `block_a` / `block_b`: source offsets (`src_trs_start/end`), destination offsets, lengths, fragment count, Gale URLs  
+- `overlap_ratio`: how similar the two destination snippets are (0–1)  
+- `min_block_length`: shorter snippet length, used for filtering noise  
+- `src_section_id` (newspaper only): lookup key to fetch Nichols/Burney page images
+"""
+        )
 
 
 def main():

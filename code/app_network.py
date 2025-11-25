@@ -148,18 +148,22 @@ def _ensure_src_headers(pairs: list[dict], data_type: str) -> None:
             pair["src_section_header"] = header
 
 
+MIN_VALID_YEAR = 1650
+MAX_VALID_YEAR = 1900
+
+
 def _extract_year_from_doc_id(doc_id: str | None) -> int | None:
     if not doc_id:
         return None
     match = re.search(r"_(\d{4})_", doc_id)
     if match:
         year = int(match.group(1))
-        if 1400 <= year <= 1900:
+        if MIN_VALID_YEAR <= year <= MAX_VALID_YEAR:
             return year
     match = re.search(r"(\d{4})", doc_id)
     if match:
         year = int(match.group(1))
-        if 1400 <= year <= 1900:
+        if MIN_VALID_YEAR <= year <= MAX_VALID_YEAR:
             return year
     return None
 

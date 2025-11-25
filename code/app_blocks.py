@@ -345,18 +345,22 @@ def _get_dst_publication_year(dst_doc_id: str | None, data_type: str) -> int | N
     return _get_metadata(data_type)["dst_pub_years"].get(str(dst_doc_id))
 
 
+MIN_VALID_YEAR = 1650
+MAX_VALID_YEAR = 1900
+
+
 def _extract_year_from_doc_id(doc_id: str | None) -> int | None:
     if not doc_id:
         return None
     match = re.search(r"_(\d{4})_", doc_id)
     if match:
         year = int(match.group(1))
-        if 1400 <= year <= 1900:
+        if MIN_VALID_YEAR <= year <= MAX_VALID_YEAR:
             return year
     match = re.search(r"(\d{4})", doc_id)
     if match:
         year = int(match.group(1))
-        if 1400 <= year <= 1900:
+        if MIN_VALID_YEAR <= year <= MAX_VALID_YEAR:
             return year
     return None
 
