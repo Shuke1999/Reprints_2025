@@ -133,20 +133,52 @@ def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None
             "AppleWebKit/537.36 (KHTML, like Gecko) "
             "Chrome/120.0.0.0 Safari/537.36"
         ),
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Referer": "https://go.gale.com/",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Cache-Control": "max-age=0",
     }
 
-    response = requests.get(target, headers=headers, timeout=30, allow_redirects=True)
-    response.raise_for_status()
-    html = response.text
+    session = requests.Session()
+    session.headers.update(headers)
+    
+    try:
+        response = session.get(target, timeout=30, allow_redirects=True)
+        response.raise_for_status()
+        html = response.text
+    except requests.exceptions.RequestException as e:
+        raise RuntimeError(f"Failed to fetch HTML from Gale: {e}")
 
-    match = (
-        re.search(r"var\s+dviResponse\s*=\s*(\{[\s\S]*?\});", html)
-        or re.search(r"dviResponse\s*=\s*(\{[\s\S]*?\});", html)
-    )
+    # Try multiple patterns to find dviResponse
+    patterns = [
+        r"var\s+dviResponse\s*=\s*(\{[\s\S]*?\});",
+        r"dviResponse\s*=\s*(\{[\s\S]*?\});",
+        r"window\.dviResponse\s*=\s*(\{[\s\S]*?\});",
+        r"dviResponse\s*:\s*(\{[\s\S]*?\})",
+        r'"dviResponse"\s*:\s*(\{[\s\S]*?\})',
+    ]
+    
+    match = None
+    for pattern in patterns:
+        match = re.search(pattern, html, re.MULTILINE | re.DOTALL)
+        if match:
+            break
+    
     if not match:
-        raise RuntimeError("dviResponse object not found in retrieved HTML")
+        # Debug: log a snippet of HTML to help diagnose
+        html_snippet = html[:2000] if len(html) > 2000 else html
+        raise RuntimeError(
+            f"dviResponse object not found in retrieved HTML. "
+            f"HTML length: {len(html)}, Status: {response.status_code}, "
+            f"URL: {target[:100]}... "
+            f"HTML snippet: {html_snippet[:500]}"
+        )
 
     obj_text = match.group(1)
     sanitized = re.sub(r",\s*}", "}", obj_text)
