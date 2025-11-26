@@ -438,22 +438,22 @@ def _render_block_pair(record: dict[str, Any], idx: int, preview_mode: str) -> N
 def _render_block_media(record: dict[str, Any], preview_mode: str) -> None:
     dataset = record.get("dataset")
     with st.expander("Images & links", expanded=False):
-        st.caption("Src/Dst 并排可视化")
+        st.caption("Side-by-side visualization of source and destination")
         col_src, col_dst = st.columns(2)
 
-        # 左侧：Hume 源文（ECCO）
+        # Left: Hume source (ECCO)
         with col_src:
-            st.caption("Hume 原文 (src)")
-            _render_preview(record.get("src_trs_url"), preview_mode, "Hume 源文")
+            st.caption("Hume source (src)")
+            _render_preview(record.get("src_trs_url"), preview_mode, "Hume source")
 
-        # 右侧：目的端
+        # Right: destination side
         with col_dst:
             if dataset == "ECCO → ECCO":
-                st.caption("ECCO 重印 (dst)")
-                _render_preview(record.get("dst_trs_url"), preview_mode, "ECCO 重印")
+                st.caption("ECCO reprint (dst)")
+                _render_preview(record.get("dst_trs_url"), preview_mode, "ECCO reprint")
             else:
-                st.caption("Newspaper/ECCO 目的端 (dst)")
-                # 报纸图像（如果是 Newspaper）
+                st.caption("Newspaper/ECCO destination (dst)")
+                # Newspaper images (if Newspaper)
                 _render_newspaper_preview(
                     record.get("dst_doc_id"),
                     str(record.get("src_section_id")),
@@ -489,10 +489,10 @@ def _render_visualization(df: pd.DataFrame) -> None:
 
 
 st.set_page_config(page_title="Hume reuse ratios", layout="wide")
-st.title("Hume Reuse Explorer（reuse_ratio 专用）")
+st.title("Hume Reuse Explorer (reuse_ratio focused)")
 st.caption(
-    "数据来源：`data/data_2011/derived-ecco/hume_outgoing_ecco-ecco_original_only_merged_with_urls.json` "
-    "与 `data/data_2011/derived-newspaper/hume_outgoing_ecco-newspaper_original_only_merged_with_urls.json`。"
+    "Data sources: `data/data_2011/derived-ecco/hume_outgoing_ecco-ecco_original_only_merged_with_urls.json` "
+    "and `data/data_2011/derived-newspaper/hume_outgoing_ecco-newspaper_original_only_merged_with_urls.json`."
 )
 
 records = load_all_records()
@@ -500,21 +500,21 @@ df = build_dataframe(records)
 available_datasets = sorted(df["dataset"].dropna().unique().tolist())
 
 with st.sidebar:
-    st.header("筛选条件")
+    st.header("Filters")
     dataset_selection = st.multiselect(
-        "选择数据集",
+        "Datasets",
         options=available_datasets,
         default=available_datasets,
     )
     ratio_min = float(df["reuse_ratio"].min(skipna=True)) if not df.empty else 0.0
     ratio_max = float(df["reuse_ratio"].max(skipna=True)) if not df.empty else 1.0
     ratio_range = st.slider(
-        "reuse_ratio 区间",
+        "reuse_ratio range",
         min_value=0.0,
         max_value=max(1.0, ratio_max),
         value=(ratio_min, ratio_max),
         step=0.001,
-        help="根据 reuse_ratio（src_piece_length / section span）限制 block。",
+        help="Filter blocks whose reuse_ratio (src_piece_length / section span) falls within this range.",
     )
 
 filtered_df = df[df["dataset"].isin(dataset_selection)]
@@ -527,18 +527,18 @@ filtered_df = filtered_df[
 st.subheader("Overview")
 col_a, col_b, col_c = st.columns(3)
 with col_a:
-    st.metric("符合条件的 blocks", len(filtered_df))
+    st.metric("Blocks matching filters", len(filtered_df))
 with col_b:
-    st.metric("数据集数量", len(dataset_selection))
+    st.metric("Datasets selected", len(dataset_selection))
 with col_c:
-    st.metric("reuse_ratio 区间", f"{ratio_range[0]:.3f} – {ratio_range[1]:.3f}")
+    st.metric("reuse_ratio range", f"{ratio_range[0]:.3f} – {ratio_range[1]:.3f}")
 
 _render_visualization(filtered_df)
 
-st.subheader("Target essay 总览")
+st.subheader("Target essay overview")
 summary_df = build_target_summary(filtered_df, available_datasets)
 if summary_df.empty:
-    st.warning("没有符合条件的 target essay。")
+    st.warning("No target essays match the current filters.")
     st.stop()
 
 summary_display = summary_df[
@@ -554,7 +554,7 @@ summary_display = summary_df[
 st.dataframe(summary_display, use_container_width=True, hide_index=True)
 
 selected_label = st.selectbox(
-    "选择 target essay 查看详情",
+    "Select a target essay to inspect",
     options=summary_df["essay_label"].tolist(),
 )
 
@@ -565,14 +565,14 @@ target_mask = (
 )
 target_df = filtered_df[target_mask].sort_values("reuse_ratio", ascending=False)
 
-st.subheader("Block pairs（按所选 target essay）")
+st.subheader("Block pairs (for selected target essay)")
 st.caption(
-    f"{selected_label} · 共 {len(target_df)} 个 block | "
-    f"reuse_ratio 范围 {selected_row['min_ratio']:.4f} – {selected_row['max_ratio']:.4f}"
+    f"{selected_label} · {len(target_df)} blocks | "
+    f"reuse_ratio range {selected_row['min_ratio']:.4f} – {selected_row['max_ratio']:.4f}"
 )
 
 preview_mode = st.radio(
-    "图片/链接展示模式",
+    "Preview mode",
     options=["Links only", "Try displaying image", "Embed webpage"],
     index=1,
     horizontal=True,
