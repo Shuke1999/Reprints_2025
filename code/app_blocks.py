@@ -40,6 +40,7 @@ NEWSPAPER_ID_MAPPING_PATH = DERIVED_NEWSPAPER_DIR / "newspaper_id_mapping.json"
 
 _METADATA_CACHE: dict[str, dict[str, dict]] = {}
 _NEWSPAPER_ARTICLE_MAPPING_CACHE: dict[str, dict[str, str]] | None = None
+_TEXT_CACHE: dict[str, dict[tuple, str | None]] = {}  # data_type -> {(doc_id, trs_start, trs_end): text}
 
 
 def _load_newspaper_article_mapping() -> dict[str, dict[str, str]]:
@@ -116,50 +117,40 @@ def _build_image_url(record_id: str | None) -> str | None:
 
 
 def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None) -> list[str]:
-    """Get newspaper image URLs by requesting Gale page and parsing dviResponse."""
+    """Get newspaper image URLs by requesting Gale page and parsing dviResponse.
+    
+    For ecco-newspaper data:
+    - dst_doc_id is the newspaper article ID (used to lookup in mapping file)
+    - src_section_id is the ECCO section ID (optional, for display purposes)
+    """
     if not dst_doc_id:
         return []
 
-    # dst_doc_id is the articleID
-    article_id = dst_doc_id
-
-    # Load mapping and find articleAssetID
     mapping = _load_newspaper_article_mapping()
-    article_info = mapping.get(article_id)
+    article_info = mapping.get(dst_doc_id)
     if not article_info:
-        st.warning(f"Could not find articleAssetID for articleID: {article_id}")
+        st.warning(f"Could not find article metadata for articleID: {dst_doc_id}")
         return []
 
     article_asset_id = article_info.get("articleAssetID")
-    if not article_asset_id:
-        st.warning(f"articleAssetID not found for articleID: {article_id}")
-        return []
     page_asset_id = article_info.get("pageAssetID")
+    doc_id_from_mapping = article_info.get("docId")
 
-    collections = {
-        "nichols": {"prodId": "NICN", "prefix": ""},
-        "burney": {"prodId": "BBCN", "prefix": "Z"},
-    }
-
-    # Determine collection from articleID
-    if article_id.upper().startswith("W"):
+    if dst_doc_id.upper().startswith("W"):
         collection = "burney"
-    elif article_id.upper().startswith("N"):
+    elif dst_doc_id.upper().startswith("N"):
         collection = "nichols"
     else:
         collection = "nichols"
 
-    config = collections.get(collection, collections["nichols"])
+    config = {"burney": {"prodId": "BBCN"}, "nichols": {"prodId": "NICN"}}.get(collection, {"prodId": "NICN"})
     prod_id = config["prodId"]
 
-    doc_id_from_mapping = article_info.get("docId")
     gale_doc_id = _normalize_doc_id(doc_id_from_mapping, article_asset_id, collection)
-
     if not gale_doc_id and page_asset_id:
         gale_doc_id = _normalize_doc_id(None, page_asset_id, collection)
-
     if not gale_doc_id:
-        st.warning(f"Unable to derive Gale docId for articleID: {article_id}")
+        st.warning(f"Unable to derive Gale docId for articleID: {dst_doc_id}")
         return []
 
     target = (
@@ -178,56 +169,40 @@ def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None
         ),
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
-        # Don't request compression to avoid decompression issues
     }
 
     try:
         response = requests.get(target, headers=headers, timeout=30, allow_redirects=True)
         response.raise_for_status()
-        
-        # Handle potential compression
-        content_encoding = response.headers.get('Content-Encoding', '').lower()
-        
-        if 'gzip' in content_encoding:
+        content_encoding = response.headers.get("Content-Encoding", "").lower()
+        if "gzip" in content_encoding:
             try:
-                html = gzip.decompress(response.content).decode('utf-8')
+                html = gzip.decompress(response.content).decode("utf-8")
             except Exception:
-                if response.encoding is None:
-                    response.encoding = 'utf-8'
+                response.encoding = response.encoding or "utf-8"
                 html = response.text
         else:
-            if response.encoding is None:
-                response.encoding = 'utf-8'
+            response.encoding = response.encoding or "utf-8"
             html = response.text
-        
-        # Check if HTML looks like compressed data
-        if html and ord(html[0]) < 32 and html[0] not in '\n\r\t':
-            try:
-                html = gzip.decompress(response.content).decode('utf-8')
-            except Exception:
-                pass
-                
-    except requests.exceptions.RequestException as e:
-        st.error(f"Failed to fetch HTML from Gale: {e}")
+    except requests.RequestException as exc:
+        st.error(f"Failed to fetch HTML from Gale: {exc}")
         return []
 
-    # Try multiple patterns to find dviResponse
     patterns = [
         r"var\s+dviResponse\s*=\s*(\{[\s\S]*?\});",
         r"dviResponse\s*=\s*(\{[\s\S]*?\});",
         r"window\.dviResponse\s*=\s*(\{[\s\S]*?\});",
-        r"dviResponse\s*:\s*(\{[\s\S]*?\})",
         r'"dviResponse"\s*:\s*(\{[\s\S]*?\})',
     ]
-    
+
     match = None
     for pattern in patterns:
-        match = re.search(pattern, html, re.MULTILINE | re.DOTALL)
+        match = re.search(pattern, html)
         if match:
             break
-    
+
     if not match:
-        st.warning(f"dviResponse object not found in retrieved HTML for articleID: {article_id}")
+        st.warning(f"dviResponse object not found for articleID: {dst_doc_id}")
         return []
 
     obj_text = match.group(1)
@@ -240,11 +215,11 @@ def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None
         try:
             dvi_response = eval(sanitized)  # noqa: S307
         except Exception:
-            st.warning(f"Failed to parse dviResponse for articleID: {article_id}")
+            st.warning(f"Failed to parse dviResponse for articleID: {dst_doc_id}")
             return []
 
     if not isinstance(dvi_response.get("pageDocuments"), list):
-        st.warning(f"dviResponse.pageDocuments missing or not an array for articleID: {article_id}")
+        st.warning(f"dviResponse.pageDocuments missing for articleID: {dst_doc_id}")
         return []
 
     toc = dvi_response.get("articleTableOfContents", [])
@@ -256,14 +231,15 @@ def _get_newspaper_image_urls(dst_doc_id: str, src_section_id: str | None = None
 
     image_list = dvi_response.get("imageList", [])
     if isinstance(image_list, list):
-        current_article_images = [img for img in image_list if img.get("currentArticle")]
-        image_urls: list[str] = []
-        for image in current_article_images:
+        urls: list[str] = []
+        for image in image_list:
+            if not image.get("currentArticle"):
+                continue
             url = _build_image_url(image.get("recordId"))
             if url:
-                image_urls.append(url)
-        if image_urls:
-            return image_urls
+                urls.append(url)
+        if urls:
+            return urls
     return []
 
 
@@ -283,49 +259,34 @@ def _render_preview(url: str | None, mode: str, label: str, height: int = 420) -
 
 
 def _render_newspaper_preview(dst_doc_id: str | None, src_section_id: str | None, mode: str, label: str) -> None:
+    """Render newspaper preview (fetch images via dst_doc_id).
+    
+    For ecco-newspaper data:
+    - dst_doc_id is the newspaper article ID (used to lookup in mapping file)
+    - src_section_id is the ECCO section ID (optional, for display purposes)
+    """
     if not dst_doc_id:
-        st.info(f"{label} has no dst_doc_id (article ID)")
+        st.info(f"{label} has no dst_doc_id")
         return
-
-    collection_info = ""
-    if dst_doc_id:
-        if str(dst_doc_id).upper().startswith("W"):
-            collection_info = " (Burney collection)"
-        elif str(dst_doc_id).upper().startswith("N"):
-            collection_info = " (Nichols collection)"
-    
-    # Get article info from mapping
-    mapping = _load_newspaper_article_mapping()
-    article_info = mapping.get(dst_doc_id, {})
-    article_type = article_info.get("articleType", "Unknown")
-    
-    st.info(f"Article ID: `{dst_doc_id}`{collection_info}")
-    st.info(f"Article Type: `{article_type}`")
-    if src_section_id:
-        st.info(f"src_section_id: `{src_section_id}`")
-
+    st.info(f"Article ID: `{dst_doc_id}` | src_section_id: `{src_section_id}`")
     if mode == "Links only":
         return
-
     with st.spinner(f"Fetching images for {label}..."):
         try:
             image_urls = _get_newspaper_image_urls(dst_doc_id, src_section_id)
         except Exception as exc:
-            st.error(f"Failed to fetch images: {exc}")
+            st.error(f"Failed to fetch images for {label}: {exc}")
             return
-
     if image_urls:
         st.success(f"Fetched {len(image_urls)} image(s)")
-        for idx, img_url in enumerate(image_urls):
-            st.markdown(f"**{label} - Image {idx + 1}**")
+        for idx, img_url in enumerate(image_urls, start=1):
             try:
-                st.image(img_url, caption=f"{label} - Image {idx + 1}", use_container_width=True)
+                st.image(img_url, caption=f"{label} - Image {idx}", use_container_width=True)
             except Exception as exc:
-                st.warning(f"Failed to display image {idx + 1}: {exc}")
-                st.caption(f"Image URL: {img_url}")
+                st.warning(f"Failed to display image {idx}: {exc}")
                 st.markdown(f"[Open image URL]({img_url})")
     else:
-        st.warning(f"No images found for {label} (article ID: {dst_doc_id})")
+        st.warning(f"No images found for {label}")
 
 
 def _infer_collection_from_doc_id(doc_id: str | None) -> str:
@@ -359,6 +320,8 @@ def _get_metadata(data_type: str) -> dict[str, dict]:
     src_pub_years: dict[str, int] = {}
     dst_pub_dates: dict[str, str] = {}
     dst_pub_years: dict[str, int] = {}
+    src_section_starts: dict[tuple[str, str], int | None] = {}
+    src_section_ends: dict[tuple[str, str], int | None] = {}
 
     if metadata_path and metadata_path.exists():
         with open(metadata_path, "r", encoding="utf-8") as f:
@@ -372,6 +335,14 @@ def _get_metadata(data_type: str) -> dict[str, dict]:
                 header = record.get("src_section_header")
                 if header and key not in src_headers:
                     src_headers[key] = header
+                
+                # Cache section start and end positions
+                section_start = record.get("src_section_start")
+                section_end = record.get("src_section_end")
+                if key not in src_section_starts and section_start is not None:
+                    src_section_starts[key] = section_start
+                if key not in src_section_ends and section_end is not None:
+                    src_section_ends[key] = section_end
 
             src_publication_date = record.get("src_publication_date")
             if src_doc_id and src_publication_date:
@@ -399,6 +370,8 @@ def _get_metadata(data_type: str) -> dict[str, dict]:
         "src_pub_years": src_pub_years,
         "dst_pub_dates": dst_pub_dates,
         "dst_pub_years": dst_pub_years,
+        "src_section_starts": src_section_starts,
+        "src_section_ends": src_section_ends,
     }
     _METADATA_CACHE[data_type] = meta
     return meta
@@ -446,6 +419,119 @@ def _get_dst_publication_year(dst_doc_id: str | None, data_type: str) -> int | N
     return _get_metadata(data_type)["dst_pub_years"].get(str(dst_doc_id))
 
 
+def _get_src_section_start(src_doc_id: str | None, src_section_id: str | int | None, data_type: str) -> int | None:
+    """Get section start position for target essay."""
+    if src_doc_id is None or src_section_id is None:
+        return None
+    section_starts = _get_metadata(data_type)["src_section_starts"]
+    return section_starts.get((str(src_doc_id), str(src_section_id)))
+
+
+def _get_src_section_end(src_doc_id: str | None, src_section_id: str | int | None, data_type: str) -> int | None:
+    """Get section end position for target essay."""
+    if src_doc_id is None or src_section_id is None:
+        return None
+    section_ends = _get_metadata(data_type)["src_section_ends"]
+    return section_ends.get((str(src_doc_id), str(src_section_id)))
+
+
+def _calculate_essay_ratio(pair: dict, data_type: str) -> float | None:
+    """
+    Calculate essay_ratio: the ratio of the quoted piece length to the entire target essay section.
+    
+    Formula: essay_ratio = src_piece_length / (src_section_end - src_section_start)
+    
+    Original overlap_ratio calculation (deprecated):
+    overlap_ratio = intersection_len / min_block_length
+    This measured how much two destination blocks overlapped with each other.
+    
+    Returns None if section boundaries are not available.
+    """
+    block_a = pair.get("block_a", {})
+    if not block_a:
+        return None
+    
+    src_piece_length = block_a.get("src_piece_length")
+    if src_piece_length is None:
+        return None
+    
+    src_doc_id = pair.get("src_doc_id")
+    src_section_id = pair.get("src_section_id")
+    if src_doc_id is None or src_section_id is None:
+        return None
+    
+    section_start = _get_src_section_start(src_doc_id, src_section_id, data_type)
+    section_end = _get_src_section_end(src_doc_id, src_section_id, data_type)
+    
+    if section_start is None or section_end is None:
+        return None
+    
+    section_length = section_end - section_start
+    if section_length <= 0:
+        return None
+    
+    return src_piece_length / section_length
+
+
+def _load_text_cache(data_type: str) -> dict[tuple, str | None]:
+    """Load text cache from metadata file, keyed by (doc_id, trs_start, trs_end)."""
+    global _TEXT_CACHE
+    if data_type in _TEXT_CACHE:
+        return _TEXT_CACHE[data_type]
+    
+    _TEXT_CACHE[data_type] = {}
+    metadata_path = DST_METADATA_FILES.get(data_type)
+    
+    if metadata_path and metadata_path.exists():
+        try:
+            with open(metadata_path, "r", encoding="utf-8") as f:
+                records = json.load(f)
+            for record in records:
+                # Cache src_text
+                src_doc_id = record.get("src_doc_id")
+                src_trs_start = record.get("src_trs_start")
+                src_trs_end = record.get("src_trs_end")
+                src_text = record.get("src_text")
+                if src_doc_id is not None and src_trs_start is not None and src_trs_end is not None:
+                    key = (str(src_doc_id), src_trs_start, src_trs_end)
+                    if key not in _TEXT_CACHE[data_type]:
+                        _TEXT_CACHE[data_type][key] = src_text
+                
+                # Cache dst_text
+                dst_doc_id = record.get("dst_doc_id")
+                dst_trs_start = record.get("dst_trs_start")
+                dst_trs_end = record.get("dst_trs_end")
+                dst_text = record.get("dst_text")
+                if dst_doc_id is not None and dst_trs_start is not None and dst_trs_end is not None:
+                    key = (str(dst_doc_id), dst_trs_start, dst_trs_end)
+                    if key not in _TEXT_CACHE[data_type]:
+                        _TEXT_CACHE[data_type][key] = dst_text
+        except Exception as exc:
+            st.warning(f"Failed to load text cache: {exc}")
+    
+    return _TEXT_CACHE[data_type]
+
+
+def _get_text_from_block(block: dict, text_type: str, data_type: str) -> str | None:
+    """Get text from block, trying block fields first, then metadata cache."""
+    # First try to get from block directly
+    text = block.get(f"{text_type}_text")
+    if text:
+        return text
+    
+    # If not in block, try to get from metadata cache
+    doc_id = block.get(f"{text_type}_doc_id")
+    trs_start = block.get(f"{text_type}_trs_start")
+    trs_end = block.get(f"{text_type}_trs_end")
+    
+    if doc_id is not None and trs_start is not None and trs_end is not None:
+        text_cache = _load_text_cache(data_type)
+        key = (str(doc_id), trs_start, trs_end)
+        return text_cache.get(key)
+    
+    return None
+
+
 MIN_VALID_YEAR = 1650
 MAX_VALID_YEAR = 1900
 
@@ -485,15 +571,21 @@ def render_block_comparison(blocks_data, data_type: str):
 
     st.info(f"Loaded {len(blocks_data)} block pair records.")
 
-    overlap_ratios = [pair.get("overlap_ratio", 0) for pair in blocks_data]
-    min_block_lengths = [pair.get("min_block_length", 0) for pair in blocks_data]
-
-    min_overlap = min(overlap_ratios) if overlap_ratios else 0
-    max_overlap = max(overlap_ratios) if overlap_ratios else 1
-    # Ensure max_overlap is greater than min_overlap
-    if max_overlap <= min_overlap:
-        max_overlap = min_overlap + 0.01
+    # Calculate essay_ratio for all pairs
+    essay_ratios = []
+    for pair in blocks_data:
+        ratio = _calculate_essay_ratio(pair, data_type)
+        essay_ratios.append(ratio)
     
+    # Filter out None values for min/max calculation
+    valid_ratios = [r for r in essay_ratios if r is not None]
+    min_essay_ratio = min(valid_ratios) if valid_ratios else 0.0
+    max_essay_ratio = max(valid_ratios) if valid_ratios else 1.0
+    # Ensure max_essay_ratio is greater than min_essay_ratio
+    if max_essay_ratio <= min_essay_ratio:
+        max_essay_ratio = min_essay_ratio + 0.01
+    
+    min_block_lengths = [pair.get("min_block_length", 0) for pair in blocks_data]
     min_length = min(min_block_lengths) if min_block_lengths else 0
     max_length = max(min_block_lengths) if min_block_lengths else 1000
     # Ensure max_length is greater than min_length
@@ -502,22 +594,22 @@ def render_block_comparison(blocks_data, data_type: str):
 
     col1, col2 = st.columns(2)
     with col1:
-        overlap_min = st.slider(
-            "Minimum overlap_ratio",
-            min_value=float(min_overlap),
-            max_value=float(max_overlap),
-            value=float(min_overlap),
+        essay_ratio_min = st.slider(
+            "Minimum essay_ratio",
+            min_value=float(min_essay_ratio),
+            max_value=float(max_essay_ratio),
+            value=float(min_essay_ratio),
             step=0.01,
-            key=f"overlap_min_{data_type}",
+            key=f"essay_ratio_min_{data_type}",
         )
     with col2:
-        overlap_max = st.slider(
-            "Maximum overlap_ratio",
-            min_value=float(min_overlap),
-            max_value=float(max_overlap),
-            value=float(max_overlap),
+        essay_ratio_max = st.slider(
+            "Maximum essay_ratio",
+            min_value=float(min_essay_ratio),
+            max_value=float(max_essay_ratio),
+            value=float(max_essay_ratio),
             step=0.01,
-            key=f"overlap_max_{data_type}",
+            key=f"essay_ratio_max_{data_type}",
         )
 
     col3, col4 = st.columns(2)
@@ -540,14 +632,20 @@ def render_block_comparison(blocks_data, data_type: str):
             key=f"length_max_{data_type}",
         )
 
-    filtered_data = [
-        pair
-        for pair in blocks_data
-        if (
-            overlap_min <= pair.get("overlap_ratio", 0) <= overlap_max
-            and length_min <= pair.get("min_block_length", 0) <= length_max
+    filtered_data = []
+    for pair in blocks_data:
+        essay_ratio = _calculate_essay_ratio(pair, data_type)
+        min_block_len = pair.get("min_block_length", 0)
+        
+        # Filter by essay_ratio (None values pass through to be sorted last)
+        ratio_match = (
+            essay_ratio is None or 
+            (essay_ratio_min <= essay_ratio <= essay_ratio_max)
         )
-    ]
+        length_match = length_min <= min_block_len <= length_max
+        
+        if ratio_match and length_match:
+            filtered_data.append(pair)
 
     st.success(f"{len(filtered_data)} records remain after filtering.")
 
@@ -630,6 +728,28 @@ def render_block_comparison(blocks_data, data_type: str):
                     if urls:
                         st.markdown(f"**First page link:** [{urls[0]}]({urls[0]})")
 
+    # Sort pairs by essay_ratio (descending), with None values at the end
+    # Original overlap_ratio sorting (deprecated):
+    # sorted(selected_pairs, key=lambda p: p.get("overlap_ratio", 0), reverse=True)
+    def sort_key(pair):
+        ratio = _calculate_essay_ratio(pair, data_type)
+        # Return a tuple: (is_none, value) so None values sort last
+        # False sorts before True, so (False, ratio) comes before (True, None)
+        return (ratio is None, ratio if ratio is not None else 0.0)
+    
+    selected_pairs_sorted = sorted(
+        selected_pairs,
+        key=sort_key,
+        reverse=False  # False, high_value comes before True, 0, so None goes last
+    )
+    # Reverse to get descending order for non-None values
+    # We need to separate None and non-None, then reverse non-None
+    non_none_pairs = [p for p in selected_pairs_sorted if _calculate_essay_ratio(p, data_type) is not None]
+    none_pairs = [p for p in selected_pairs_sorted if _calculate_essay_ratio(p, data_type) is None]
+    # Sort non-None pairs by ratio descending
+    non_none_pairs.sort(key=lambda p: _calculate_essay_ratio(p, data_type), reverse=True)
+    selected_pairs_sorted = non_none_pairs + none_pairs
+
     st.divider()
 
     preview_mode = st.radio(
@@ -639,209 +759,237 @@ def render_block_comparison(blocks_data, data_type: str):
         key=f"preview_mode_{data_type}",
     )
 
-    destination_entries: list[dict] = []
+    # Initialize session state for current pair index
+    session_key = f"current_pair_idx_{data_type}_{src_doc_id}_{src_section_id}"
+    if session_key not in st.session_state:
+        st.session_state[session_key] = 0
 
-    for idx, pair in enumerate(selected_pairs):
-        with st.expander(
-            f"Pair {idx + 1}: {pair.get('dst_doc_id_a', 'N/A')} <-> {pair.get('dst_doc_id_b', 'N/A')} "
-            f"(overlap: {pair.get('overlap_ratio', 0):.4f}, min_length: {pair.get('min_block_length', 0)})",
-            expanded=False,
-        ):
-            col_pair_info1, col_pair_info2 = st.columns(2)
-            with col_pair_info1:
-                st.markdown("**Pair details**")
-                st.markdown(f"- overlap_ratio: `{pair.get('overlap_ratio', 0):.4f}`")
-                st.markdown(f"- intersection_len: `{pair.get('intersection_len', 0)}`")
-                st.markdown(f"- min_block_length: `{pair.get('min_block_length', 0)}`")
+    current_idx = st.session_state[session_key]
+    total_pairs = len(selected_pairs_sorted)
 
-            with col_pair_info2:
-                st.markdown("**Destination documents**")
-                st.markdown(f"- dst_doc_id_a: `{pair.get('dst_doc_id_a', 'N/A')}`")
-                st.markdown(f"- dst_doc_id_b: `{pair.get('dst_doc_id_b', 'N/A')}`")
+    if total_pairs == 0:
+        st.warning("No pairs found for this target essay.")
+        return
 
-            st.divider()
-            st.markdown("### Target Essay -> Destination Blocks")
-            col_block_a, col_block_b = st.columns(2)
+    # Navigation controls
+    col_nav1, col_nav2, col_nav3 = st.columns([1, 2, 1])
+    with col_nav1:
+        if st.button("◀ Previous", key=f"prev_{data_type}", disabled=(current_idx == 0)):
+            st.session_state[session_key] = max(0, current_idx - 1)
+            st.rerun()
+    
+    with col_nav2:
+        current_pair = selected_pairs_sorted[current_idx]
+        essay_ratio = _calculate_essay_ratio(current_pair, data_type)
+        ratio_display = f"{essay_ratio:.4f}" if essay_ratio is not None else "N/A"
+        st.markdown(
+            f"<div style='text-align: center; padding: 10px;'>"
+            f"<strong>Pair {current_idx + 1} of {total_pairs}</strong> "
+            f"(essay_ratio: {ratio_display})"
+            f"</div>",
+            unsafe_allow_html=True
+        )
+    
+    with col_nav3:
+        if st.button("Next ▶", key=f"next_{data_type}", disabled=(current_idx >= total_pairs - 1)):
+            st.session_state[session_key] = min(total_pairs - 1, current_idx + 1)
+            st.rerun()
 
-            # Block A
-            with col_block_a:
-                if "block_a" in pair:
-                    st.markdown("#### Block A")
-                    block_a = pair["block_a"]
-                    dst_a_pub_date = _get_dst_publication_date(block_a.get("dst_doc_id"), data_type)
-                    destination_entries.append(
-                        {
-                            "dst_doc_id": block_a.get("dst_doc_id"),
-                            "dst_publication_date": dst_a_pub_date,
-                            "year": _get_dst_publication_year(block_a.get("dst_doc_id"), data_type)
-                            or _extract_year_from_doc_id(block_a.get("dst_doc_id")),
-                            "block_label": "Block A",
-                            "pair_index": idx + 1,
-                            "pair_summary": (
-                                f"Pair {idx + 1}: {pair.get('dst_doc_id_a', 'N/A')} <-> {pair.get('dst_doc_id_b', 'N/A')}"
-                            ),
-                            "block": block_a,
-                        }
+    # Display current pair
+    pair = selected_pairs_sorted[current_idx]
+    block_a = pair.get("block_a", {})
+    block_b = pair.get("block_b", {})
+
+    st.divider()
+
+    # Select which destination block to display
+    block_options = []
+    if block_a:
+        dst_a_doc_id = block_a.get("dst_doc_id", "N/A")
+        block_options.append(f"Block A: {dst_a_doc_id}")
+    if block_b:
+        dst_b_doc_id = block_b.get("dst_doc_id", "N/A")
+        block_options.append(f"Block B: {dst_b_doc_id}")
+    
+    if not block_options:
+        st.warning("No destination blocks found in this pair.")
+        return
+    
+    # Select block to display
+    block_selector_key = f"block_selector_{data_type}_{src_doc_id}_{src_section_id}_{current_idx}"
+    if block_selector_key not in st.session_state:
+        st.session_state[block_selector_key] = 0
+    
+    selected_block_idx = st.session_state[block_selector_key]
+    if selected_block_idx >= len(block_options):
+        selected_block_idx = 0
+        st.session_state[block_selector_key] = 0
+    
+    selected_block_label = st.radio(
+        "Select destination block to display:",
+        options=block_options,
+        index=selected_block_idx,
+        horizontal=True,
+        key=f"block_radio_{data_type}_{current_idx}",
+    )
+    
+    # Update session state if selection changed
+    new_idx = block_options.index(selected_block_label)
+    if new_idx != st.session_state[block_selector_key]:
+        st.session_state[block_selector_key] = new_idx
+    
+    # Determine which block to display
+    if "Block A" in selected_block_label:
+        selected_block = block_a
+        block_label = "Block A"
+    else:
+        selected_block = block_b
+        block_label = "Block B"
+
+    st.divider()
+
+    # Main layout: Target essay on left, Destination on right
+    col_left, col_right = st.columns([1, 2], gap="large")
+
+    with col_left:
+        st.markdown("### Target Essay (Source)")
+        st.markdown(f"**Doc ID:** `{src_doc_id}`")
+        st.markdown(f"**Section ID:** `{src_section_id}`")
+        if src_section_header:
+            st.markdown(f"**Section Header:** {src_section_header.strip()}")
+        if src_publication_date:
+            st.markdown(f"**Publication Date:** {src_publication_date}")
+        elif src_publication_year:
+            st.markdown(f"**Publication Year:** {src_publication_year}")
+        
+        # Show source text if available and in links only mode
+        if preview_mode == "Links only":
+            # Get src_text from selected block
+            src_text = _get_text_from_block(selected_block, "src", data_type)
+            if src_text:
+                st.markdown("**Source Text:**")
+                st.code(src_text, language="text")
+            else:
+                st.info("Source text not available.")
+        
+        # Show source URL
+        src_url = selected_block.get("src_trs_url")
+        if src_url:
+            st.markdown(f"**Source URL:** [{src_url}]({src_url})")
+
+    with col_right:
+        st.markdown(f"### Destination Document ({block_label})")
+        if selected_block:
+            dst_doc_id = selected_block.get("dst_doc_id", "N/A")
+            st.markdown(f"**Doc ID:** `{dst_doc_id}`")
+            
+            dst_pub_date = _get_dst_publication_date(dst_doc_id, data_type)
+            if dst_pub_date:
+                st.markdown(f"**Publication Date:** {dst_pub_date}")
+            
+            st.markdown(f"**TRS Range:** {selected_block.get('dst_trs_start', 'N/A')} - {selected_block.get('dst_trs_end', 'N/A')}")
+            st.markdown(f"**Piece Length:** {selected_block.get('dst_piece_length', 'N/A')}")
+            st.markdown(f"**Fragment Count:** {selected_block.get('fragment_count', 'N/A')}")
+            
+            # Show destination text if available and in links only mode
+            if preview_mode == "Links only":
+                dst_text = _get_text_from_block(selected_block, "dst", data_type)
+                if dst_text:
+                    st.markdown("**Destination Text:**")
+                    st.code(dst_text, language="text")
+                else:
+                    st.info("Destination text not available.")
+            
+            # Show destination URL
+            dst_url = selected_block.get("dst_trs_url")
+            if dst_url:
+                st.markdown(f"**Destination URL:** [{dst_url}]({dst_url})")
+
+    # Pair details
+    st.divider()
+    st.markdown("### Pair Details")
+    essay_ratio = _calculate_essay_ratio(pair, data_type)
+    ratio_display = f"{essay_ratio:.4f}" if essay_ratio is not None else "N/A"
+    col_details1, col_details2 = st.columns(2)
+    with col_details1:
+        st.markdown(f"- **essay_ratio:** `{ratio_display}`")
+        st.markdown(f"- **intersection_len:** `{pair.get('intersection_len', 0)}`")
+        # Original overlap_ratio (deprecated): overlap_ratio = intersection_len / min_block_length
+    with col_details2:
+        st.markdown(f"- **min_block_length:** `{pair.get('min_block_length', 0)}`")
+        st.markdown(f"- **dst_doc_id_a:** `{pair.get('dst_doc_id_a', 'N/A')}`")
+        st.markdown(f"- **dst_doc_id_b:** `{pair.get('dst_doc_id_b', 'N/A')}`")
+    
+    # Preview area (for non-links-only modes)
+    if preview_mode != "Links only":
+        st.divider()
+        st.markdown("### Preview")
+        
+        # For "Embed webpage" mode, show target essay and destination side by side
+        if preview_mode == "Embed webpage" and selected_block:
+            src_trs_start = selected_block.get("src_trs_start")
+            src_trs_end = selected_block.get("src_trs_end")
+            src_url = selected_block.get("src_trs_url") if (src_trs_start is not None and src_trs_end is not None) else None
+            
+            if src_url or data_type == "newspaper":
+                prev_col_left, prev_col_right = st.columns(2, gap="large")
+                
+                with prev_col_left:
+                    if src_url:
+                        st.caption("Target Essay")
+                        _render_preview(src_url, preview_mode, "Target Essay")
+                    else:
+                        st.info("Target Essay URL not available")
+                
+                with prev_col_right:
+                    if data_type == "newspaper":
+                        st.caption(f"Destination ({block_label}) - Newspaper")
+                        _render_newspaper_preview(
+                            selected_block.get("dst_doc_id"),
+                            str(selected_block.get("src_section_id")),
+                            preview_mode,
+                            f"{block_label} Destination (Newspaper)",
+                        )
+                    else:
+                        dst_url = selected_block.get("dst_trs_url")
+                        if dst_url:
+                            st.caption(f"Destination ({block_label})")
+                            _render_preview(dst_url, preview_mode, f"{block_label} Destination")
+                        else:
+                            st.info("Destination URL not available")
+        else:
+            # For "Try displaying image" mode, show vertically
+            # Target essay preview using selected block's range
+            if selected_block:
+                src_trs_start = selected_block.get("src_trs_start")
+                src_trs_end = selected_block.get("src_trs_end")
+                if src_trs_start is not None and src_trs_end is not None:
+                    src_url = selected_block.get("src_trs_url")
+                    if src_url:
+                        st.caption("Target Essay")
+                        _render_preview(src_url, preview_mode, "Target Essay")
+            
+            # Destination previews (for newspaper, show images)
+            if data_type == "newspaper" and selected_block:
+                st.markdown("#### Destination (Newspaper) Images")
+                _render_newspaper_preview(
+                    selected_block.get("dst_doc_id"),
+                    str(selected_block.get("src_section_id")),
+                    preview_mode,
+                    f"{block_label} Destination (Newspaper)",
+                )
+            
+            # Destination preview
+            if selected_block:
+                st.markdown("#### Destination Preview")
+                dst_url = selected_block.get("dst_trs_url")
+                if dst_url:
+                    _render_preview(
+                        dst_url,
+                        preview_mode,
+                        f"{block_label} Destination",
                     )
 
-                    st.markdown("**Target Essay (Source):**")
-                    st.markdown(f"- src_doc_id: `{block_a.get('src_doc_id', 'N/A')}`")
-                    st.markdown(f"- src_trs_id: `{block_a.get('src_trs_id', 'N/A')}`")
-                    st.markdown(f"- src_trs_start: `{block_a.get('src_trs_start', 'N/A')}`")
-                    st.markdown(f"- src_trs_end: `{block_a.get('src_trs_end', 'N/A')}`")
-                    st.markdown(f"- src_piece_length: `{block_a.get('src_piece_length', 'N/A')}`")
-                    if data_type == "newspaper" and block_a.get("src_section_id"):
-                        st.markdown(f"- src_section_id: `{block_a.get('src_section_id', 'N/A')}`")
-                    src_a_pub_date = _get_src_publication_date(block_a.get("src_doc_id"), data_type)
-                    if src_a_pub_date:
-                        st.markdown(f"- src_publication_date: `{src_a_pub_date}`")
-                    if block_a.get("src_trs_url"):
-                        st.markdown(f"- [src_trs_url]({block_a['src_trs_url']})")
-
-                    st.markdown("**-> Destination:**")
-                    st.markdown(f"- dst_doc_id: `{block_a.get('dst_doc_id', 'N/A')}`")
-                    st.markdown(f"- dst_trs_start: `{block_a.get('dst_trs_start', 'N/A')}`")
-                    st.markdown(f"- dst_trs_end: `{block_a.get('dst_trs_end', 'N/A')}`")
-                    st.markdown(f"- dst_piece_length: `{block_a.get('dst_piece_length', 'N/A')}`")
-                    st.markdown(f"- fragment_count: `{block_a.get('fragment_count', 'N/A')}`")
-                    if dst_a_pub_date:
-                        st.markdown(f"- dst_publication_date: `{dst_a_pub_date}`")
-                    if block_a.get("dst_trs_url"):
-                        st.markdown(f"- [dst_trs_url]({block_a['dst_trs_url']})")
-
-            # Block B
-            with col_block_b:
-                if "block_b" in pair:
-                    st.markdown("#### Block B")
-                    block_b = pair["block_b"]
-                    dst_b_pub_date = _get_dst_publication_date(block_b.get("dst_doc_id"), data_type)
-                    destination_entries.append(
-                        {
-                            "dst_doc_id": block_b.get("dst_doc_id"),
-                            "dst_publication_date": dst_b_pub_date,
-                            "year": _get_dst_publication_year(block_b.get("dst_doc_id"), data_type)
-                            or _extract_year_from_doc_id(block_b.get("dst_doc_id")),
-                            "block_label": "Block B",
-                            "pair_index": idx + 1,
-                            "pair_summary": (
-                                f"Pair {idx + 1}: {pair.get('dst_doc_id_a', 'N/A')} <-> {pair.get('dst_doc_id_b', 'N/A')}"
-                            ),
-                            "block": block_b,
-                        }
-                    )
-
-                    st.markdown("**Target Essay (Source):**")
-                    st.markdown(f"- src_doc_id: `{block_b.get('src_doc_id', 'N/A')}`")
-                    st.markdown(f"- src_trs_id: `{block_b.get('src_trs_id', 'N/A')}`")
-                    st.markdown(f"- src_trs_start: `{block_b.get('src_trs_start', 'N/A')}`")
-                    st.markdown(f"- src_trs_end: `{block_b.get('src_trs_end', 'N/A')}`")
-                    st.markdown(f"- src_piece_length: `{block_b.get('src_piece_length', 'N/A')}`")
-                    if data_type == "newspaper" and block_b.get("src_section_id"):
-                        st.markdown(f"- src_section_id: `{block_b.get('src_section_id', 'N/A')}`")
-                    src_b_pub_date = _get_src_publication_date(block_b.get("src_doc_id"), data_type)
-                    if src_b_pub_date:
-                        st.markdown(f"- src_publication_date: `{src_b_pub_date}`")
-                    if block_b.get("src_trs_url"):
-                        st.markdown(f"- [src_trs_url]({block_b['src_trs_url']})")
-
-                    st.markdown("**-> Destination:**")
-                    st.markdown(f"- dst_doc_id: `{block_b.get('dst_doc_id', 'N/A')}`")
-                    st.markdown(f"- dst_trs_start: `{block_b.get('dst_trs_start', 'N/A')}`")
-                    st.markdown(f"- dst_trs_end: `{block_b.get('dst_trs_end', 'N/A')}`")
-                    st.markdown(f"- dst_piece_length: `{block_b.get('dst_piece_length', 'N/A')}`")
-                    st.markdown(f"- fragment_count: `{block_b.get('fragment_count', 'N/A')}`")
-                    if dst_b_pub_date:
-                        st.markdown(f"- dst_publication_date: `{dst_b_pub_date}`")
-                    if block_b.get("dst_trs_url"):
-                        st.markdown(f"- [dst_trs_url]({block_b['dst_trs_url']})")
-
-            # Preview area
-            if preview_mode != "Links only":
-                st.divider()
-                st.markdown("### Preview")
-                
-                # Target essay preview using merged range (src is the target essay)
-                if "block_a" in pair or "block_b" in pair:
-                    block_a = pair.get("block_a", {})
-                    block_b = pair.get("block_b", {})
-                    src_starts = []
-                    src_ends = []
-                    if block_a.get("src_trs_start") is not None:
-                        src_starts.append(block_a.get("src_trs_start"))
-                    if block_a.get("src_trs_end") is not None:
-                        src_ends.append(block_a.get("src_trs_end"))
-                    if block_b.get("src_trs_start") is not None:
-                        src_starts.append(block_b.get("src_trs_start"))
-                    if block_b.get("src_trs_end") is not None:
-                        src_ends.append(block_b.get("src_trs_end"))
-                    
-                    if src_starts and src_ends:
-                        merged_src_start = min(src_starts)
-                        merged_src_end = max(src_ends)
-                        url_template = block_a.get("src_trs_url") or block_b.get("src_trs_url")
-                        if url_template:
-                            doc_id_match = re.search(r"docId=([^&]+)", url_template)
-                            if doc_id_match:
-                                doc_id = doc_id_match.group(1)
-                                merged_src_url = (
-                                    f"https://onko-sivu.2.rahtiapp.fi/ecco?docId={doc_id}"
-                                    f"&offsetStart={merged_src_start}&offsetEnd={merged_src_end}"
-                                )
-                                st.caption("Target Essay (merged range)")
-                                _render_preview(merged_src_url, preview_mode, "Target Essay")
-                
-                # Source previews (for newspaper, show images)
-                if data_type == "newspaper":
-                    st.markdown("#### Source (Newspaper) Images")
-                    prev_col_src1, prev_col_src2 = st.columns(2)
-                    with prev_col_src1:
-                        if "block_a" in pair:
-                            block_a = pair["block_a"]
-                            dst_doc_id = block_a.get("dst_doc_id")  # newspaper ID
-                            src_section_id = block_a.get("src_section_id")
-                            if dst_doc_id:
-                                _render_newspaper_preview(
-                                    dst_doc_id,
-                                    src_section_id,
-                                    preview_mode,
-                                    "Block A Source (Newspaper)",
-                                )
-                    with prev_col_src2:
-                        if "block_b" in pair:
-                            block_b = pair["block_b"]
-                            dst_doc_id = block_b.get("dst_doc_id")  # newspaper ID
-                            src_section_id = block_b.get("src_section_id")
-                            if dst_doc_id:
-                                _render_newspaper_preview(
-                                    dst_doc_id,
-                                    src_section_id,
-                                    preview_mode,
-                                    "Block B Source (Newspaper)",
-                                )
-
-                # Destination previews
-                st.markdown("#### Destination Previews")
-                prev_col_dst1, prev_col_dst2 = st.columns(2)
-                with prev_col_dst1:
-                    if "block_a" in pair:
-                        block_a = pair["block_a"]
-                        st.caption("Destination (Block A)")
-                        if block_a.get("dst_trs_url"):
-                            _render_preview(
-                                block_a.get("dst_trs_url"),
-                                preview_mode,
-                                "Block A Destination",
-                            )
-                with prev_col_dst2:
-                    if "block_b" in pair:
-                        block_b = pair["block_b"]
-                        st.caption("Destination (Block B)")
-                        if block_b.get("dst_trs_url"):
-                            _render_preview(
-                                block_b.get("dst_trs_url"),
-                                preview_mode,
-                                "Block B Destination",
-                            )
 
     # --- Destination Propagation Timeline (for most reprinted target essay) ---
     st.divider()
@@ -1049,18 +1197,20 @@ def render_essay_search_page():
         block_b = pair.get("block_b", {})
         dst_a = block_a.get("dst_doc_id", "N/A") if block_a else "N/A"
         dst_b = block_b.get("dst_doc_id", "N/A") if block_b else "N/A"
-        overlap = pair.get("overlap_ratio", 0)
+        essay_ratio = _calculate_essay_ratio(pair, search_data_type)
+        ratio_display = f"{essay_ratio:.4f}" if essay_ratio is not None else "N/A"
         
         with st.expander(
-            f"Pair {pair_idx}: {dst_a} <-> {dst_b} (overlap: {overlap:.4f}, min_length: {pair.get('min_block_length', 0)})",
+            f"Pair {pair_idx}: {dst_a} <-> {dst_b} (essay_ratio: {ratio_display}, min_length: {pair.get('min_block_length', 0)})",
             expanded=False,
         ):
             col_pair_info1, col_pair_info2 = st.columns(2)
             with col_pair_info1:
                 st.markdown("**Pair details**")
-                st.markdown(f"- overlap_ratio: `{pair.get('overlap_ratio', 0):.4f}`")
+                st.markdown(f"- essay_ratio: `{ratio_display}`")
                 st.markdown(f"- intersection_len: `{pair.get('intersection_len', 0)}`")
                 st.markdown(f"- min_block_length: `{pair.get('min_block_length', 0)}`")
+                # Original overlap_ratio (deprecated): overlap_ratio = intersection_len / min_block_length
             
             with col_pair_info2:
                 st.markdown("**Destination documents**")
@@ -1172,32 +1322,26 @@ def render_essay_search_page():
                 
                 # Newspaper images (for newspaper data type)
                 if search_data_type == "newspaper":
-                    st.markdown("#### Source (Newspaper) Images")
+                    st.markdown("#### Destination (Newspaper) Images")
                     prev_col_newspaper1, prev_col_newspaper2 = st.columns(2)
                     with prev_col_newspaper1:
                         if "block_a" in pair:
                             block_a = pair["block_a"]
-                            dst_doc_id = block_a.get("dst_doc_id")
-                            src_section_id = block_a.get("src_section_id")
-                            if dst_doc_id:
-                                _render_newspaper_preview(
-                                    dst_doc_id,
-                                    src_section_id,
-                                    preview_mode,
-                                    "Block A Source (Newspaper)",
-                                )
+                            _render_newspaper_preview(
+                                block_a.get("dst_doc_id"),
+                                str(block_a.get("src_section_id")),
+                                preview_mode,
+                                "Block A Destination (Newspaper)",
+                            )
                     with prev_col_newspaper2:
                         if "block_b" in pair:
                             block_b = pair["block_b"]
-                            dst_doc_id = block_b.get("dst_doc_id")
-                            src_section_id = block_b.get("src_section_id")
-                            if dst_doc_id:
-                                _render_newspaper_preview(
-                                    dst_doc_id,
-                                    src_section_id,
-                                    preview_mode,
-                                    "Block B Source (Newspaper)",
-                                )
+                            _render_newspaper_preview(
+                                block_b.get("dst_doc_id"),
+                                str(block_b.get("src_section_id")),
+                                preview_mode,
+                                "Block B Destination (Newspaper)",
+                            )
                 
                 # Destination previews
                 st.markdown("#### Destination Previews")
@@ -1350,7 +1494,8 @@ def render_issue_tracking_page():
                 block_b = pair.get("block_b", {})
                 dst_a = block_a.get("dst_doc_id", "N/A") if block_a else "N/A"
                 dst_b = block_b.get("dst_doc_id", "N/A") if block_b else "N/A"
-                overlap = pair.get("overlap_ratio", 0)
+                essay_ratio = _calculate_essay_ratio(pair, search_data_type)
+                ratio_display = f"{essay_ratio:.4f}" if essay_ratio is not None else "N/A"
                 
                 status_badge = "🔴 Marked" if is_marked else "⚪ Not marked"
                 st.markdown(
@@ -1358,7 +1503,7 @@ def render_issue_tracking_page():
                     f"src_doc_id: `{pair.get('src_doc_id', 'N/A')}`, "
                     f"src_section_id: `{pair.get('src_section_id', 'N/A')}`, "
                     f"dst: {dst_a} <-> {dst_b}, "
-                    f"overlap: {overlap:.4f}"
+                    f"essay_ratio: {ratio_display}"
                 )
             with col2:
                 if is_marked:
