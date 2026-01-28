@@ -611,7 +611,7 @@ def render_stage3() -> None:
     
     st.markdown("""
     **Text Comparison & Analysis**
-    - [Block Pairs Comparison](https://reprints-blocks.streamlit.app// - View all reprint blocks by target essay with side-by-side text display
+    - [Block Pairs Comparison](https://reprints-blocks.streamlit.app/) - View all reprint blocks by target essay with side-by-side text display
     - [Reuse Ratio Explorer](https://reprints-essay-ratio.streamlit.app/) - Filter and analyze by reuse ratio, view statistics per essay
     - *Features*: ECCO page and newspaper image viewing, text comparison, search functionality
     """)
