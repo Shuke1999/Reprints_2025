@@ -1,0 +1,478 @@
+{
+  "L1": 2200,
+  "pair_ids": [
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "0149001000"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "0211200404"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "0310300102"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "0326000502"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "0383001010"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "0839010010"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "0899300403"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "0918001200"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "1142500202"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "1266300500"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "1502700300"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "1654901100"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "1671001201"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "1700000111"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "1700100116"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "dst_doc_id": "1719900300"
+    },
+    {
+      "src_doc_id": "0255100702",
+      "dst_doc_id": "0211200402"
+    },
+    {
+      "src_doc_id": "0255100702",
+      "dst_doc_id": "0326000502"
+    },
+    {
+      "src_doc_id": "0302000100",
+      "dst_doc_id": "1266300500"
+    },
+    {
+      "src_doc_id": "0302000100",
+      "dst_doc_id": "1700000115"
+    },
+    {
+      "src_doc_id": "1070400201",
+      "dst_doc_id": "0383001010"
+    },
+    {
+      "src_doc_id": "1070400201",
+      "dst_doc_id": "0383001020"
+    },
+    {
+      "src_doc_id": "1653000501",
+      "dst_doc_id": "0685801400"
+    },
+    {
+      "src_doc_id": "1653000501",
+      "dst_doc_id": "1399100100"
+    }
+  ],
+  "entries": [
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 26693,
+      "src_trs_end": 29091,
+      "dst_doc_id": "0839010010",
+      "dst_trs_start": 39100,
+      "dst_trs_end": 41485,
+      "reuse_type": "Unattributed Reprint",
+      "src_trs_start_octavo": 26856,
+      "src_trs_end_octavo": 29254,
+      "dst_trs_start_octavo": 39100,
+      "dst_trs_end_octavo": 41485,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=26693&offsetEnd=29091&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0839010010&offsetStart=39100&offsetEnd=41485&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "1070400201",
+      "src_trs_start": 811449,
+      "src_trs_end": 812068,
+      "dst_doc_id": "0383001010",
+      "dst_trs_start": 196429,
+      "dst_trs_end": 197048,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 812985,
+      "src_trs_end_octavo": 813604,
+      "dst_trs_start_octavo": 196429,
+      "dst_trs_end_octavo": 197048,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1070400201&offsetStart=811449&offsetEnd=812068&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0383001010&offsetStart=196429&offsetEnd=197048&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 107040,
+      "src_trs_end": 108697,
+      "dst_doc_id": "1700000111",
+      "dst_trs_start": 2420190,
+      "dst_trs_end": 2421869,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 107532,
+      "src_trs_end_octavo": 109189,
+      "dst_trs_start_octavo": 2423358,
+      "dst_trs_end_octavo": 2425037,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=107040&offsetEnd=108697&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1700000111&offsetStart=2420190&offsetEnd=2421869&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "1653000501",
+      "src_trs_start": 176073,
+      "src_trs_end": 176931,
+      "dst_doc_id": "0685801400",
+      "dst_trs_start": 33405,
+      "dst_trs_end": 34236,
+      "reuse_type": "Unattributed Reprint",
+      "src_trs_start_octavo": 176622,
+      "src_trs_end_octavo": 177480,
+      "dst_trs_start_octavo": 33615,
+      "dst_trs_end_octavo": 34446,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1653000501&offsetStart=176073&offsetEnd=176931&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0685801400&offsetStart=33405&offsetEnd=34236&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 17898,
+      "src_trs_end": 18003,
+      "dst_doc_id": "0310300102",
+      "dst_trs_start": 1358894,
+      "dst_trs_end": 1359011,
+      "reuse_type": "Unattributed Reprint",
+      "src_trs_start_octavo": 18021,
+      "src_trs_end_octavo": 18126,
+      "dst_trs_start_octavo": 1359592,
+      "dst_trs_end_octavo": 1359709,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=17898&offsetEnd=18003&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0310300102&offsetStart=1358894&offsetEnd=1359011&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 80587,
+      "src_trs_end": 80779,
+      "dst_doc_id": "1502700300",
+      "dst_trs_start": 254,
+      "dst_trs_end": 443,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 80931,
+      "src_trs_end_octavo": 81123,
+      "dst_trs_start_octavo": 254,
+      "dst_trs_end_octavo": 443,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=80587&offsetEnd=80779&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1502700300&offsetStart=254&offsetEnd=443&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 65598,
+      "src_trs_end": 66697,
+      "dst_doc_id": "0326000502",
+      "dst_trs_start": 82937,
+      "dst_trs_end": 84031,
+      "reuse_type": "Unattributed Reprint",
+      "src_trs_start_octavo": 65903,
+      "src_trs_end_octavo": 67002,
+      "dst_trs_start_octavo": 84553,
+      "dst_trs_end_octavo": 85700,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=65598&offsetEnd=66697&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0326000502&offsetStart=82937&offsetEnd=84031&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0302000100",
+      "src_trs_start": 192249,
+      "src_trs_end": 192585,
+      "dst_doc_id": "1700000115",
+      "dst_trs_start": 2829247,
+      "dst_trs_end": 2829586,
+      "reuse_type": "Unattributed Reprint",
+      "src_trs_start_octavo": 192536,
+      "src_trs_end_octavo": 192872,
+      "dst_trs_start_octavo": 2849113,
+      "dst_trs_end_octavo": 2849452,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0302000100&offsetStart=192249&offsetEnd=192585&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1700000115&offsetStart=2829247&offsetEnd=2829586&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 22352,
+      "src_trs_end": 23184,
+      "dst_doc_id": "1671001201",
+      "dst_trs_start": 158163,
+      "dst_trs_end": 159040,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 22515,
+      "src_trs_end_octavo": 23347,
+      "dst_trs_start_octavo": 158909,
+      "dst_trs_end_octavo": 159786,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=22352&offsetEnd=23184&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1671001201&offsetStart=158163&offsetEnd=159040&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100702",
+      "src_trs_start": 88161,
+      "src_trs_end": 88400,
+      "dst_doc_id": "0211200402",
+      "dst_trs_start": 470961,
+      "dst_trs_end": 471192,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 88404,
+      "src_trs_end_octavo": 88643,
+      "dst_trs_start_octavo": 471043,
+      "dst_trs_end_octavo": 471274,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100702&offsetStart=88161&offsetEnd=88400&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0211200402&offsetStart=470961&offsetEnd=471192&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 16081,
+      "src_trs_end": 16879,
+      "dst_doc_id": "1266300500",
+      "dst_trs_start": 383401,
+      "dst_trs_end": 384166,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 16204,
+      "src_trs_end_octavo": 17002,
+      "dst_trs_start_octavo": 383452,
+      "dst_trs_end_octavo": 384217,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=16081&offsetEnd=16879&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1266300500&offsetStart=383401&offsetEnd=384166&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100702",
+      "src_trs_start": 199503,
+      "src_trs_end": 200048,
+      "dst_doc_id": "0326000502",
+      "dst_trs_start": 284251,
+      "dst_trs_end": 284806,
+      "reuse_type": "Unattributed Reprint",
+      "src_trs_start_octavo": 199899,
+      "src_trs_end_octavo": 200444,
+      "dst_trs_start_octavo": 288318,
+      "dst_trs_end_octavo": 288873,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100702&offsetStart=199503&offsetEnd=200048&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0326000502&offsetStart=284251&offsetEnd=284806&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "1653000501",
+      "src_trs_start": 176110,
+      "src_trs_end": 176925,
+      "dst_doc_id": "1399100100",
+      "dst_trs_start": 1103857,
+      "dst_trs_end": 1104779,
+      "reuse_type": "Unattributed Reprint",
+      "src_trs_start_octavo": 176659,
+      "src_trs_end_octavo": 177474,
+      "dst_trs_start_octavo": 1106462,
+      "dst_trs_end_octavo": 1107384,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1653000501&offsetStart=176110&offsetEnd=176925&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1399100100&offsetStart=1103857&offsetEnd=1104779&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 92504,
+      "src_trs_end": 94123,
+      "dst_doc_id": "1700100116",
+      "dst_trs_start": 1116029,
+      "dst_trs_end": 1117658,
+      "reuse_type": "Unattributed Reprint",
+      "src_trs_start_octavo": 92898,
+      "src_trs_end_octavo": 94517,
+      "dst_trs_start_octavo": 1122703,
+      "dst_trs_end_octavo": 1124332,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=92504&offsetEnd=94123&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1700100116&offsetStart=1116029&offsetEnd=1117658&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 34429,
+      "src_trs_end": 40078,
+      "dst_doc_id": "0383001010",
+      "dst_trs_start": 12027,
+      "dst_trs_end": 17657,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 34648,
+      "src_trs_end_octavo": 40297,
+      "dst_trs_start_octavo": 12027,
+      "dst_trs_end_octavo": 17657,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=34429&offsetEnd=40078&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0383001010&offsetStart=12027&offsetEnd=17657&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 107324,
+      "src_trs_end": 109211,
+      "dst_doc_id": "0383001010",
+      "dst_trs_start": 198404,
+      "dst_trs_end": 200280,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 107816,
+      "src_trs_end_octavo": 109703,
+      "dst_trs_start_octavo": 198404,
+      "dst_trs_end_octavo": 200280,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=107324&offsetEnd=109211&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0383001010&offsetStart=198404&offsetEnd=200280&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 77857,
+      "src_trs_end": 79738,
+      "dst_doc_id": "0149001000",
+      "dst_trs_start": 610360,
+      "dst_trs_end": 612221,
+      "reuse_type": "Unattributed Reprint",
+      "src_trs_start_octavo": 78201,
+      "src_trs_end_octavo": 80082,
+      "dst_trs_start_octavo": 610360,
+      "dst_trs_end_octavo": 612221,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=77857&offsetEnd=79738&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0149001000&offsetStart=610360&offsetEnd=612221&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 178126,
+      "src_trs_end": 179317,
+      "dst_doc_id": "0211200404",
+      "dst_trs_start": 428810,
+      "dst_trs_end": 429967,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 178820,
+      "src_trs_end_octavo": 180011,
+      "dst_trs_start_octavo": 428874,
+      "dst_trs_end_octavo": 430031,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=178126&offsetEnd=179317&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0211200404&offsetStart=428810&offsetEnd=429967&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 16093,
+      "src_trs_end": 16880,
+      "dst_doc_id": "0918001200",
+      "dst_trs_start": 537418,
+      "dst_trs_end": 538182,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 16216,
+      "src_trs_end_octavo": 17003,
+      "dst_trs_start_octavo": 538028,
+      "dst_trs_end_octavo": 538792,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=16093&offsetEnd=16880&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0918001200&offsetStart=537418&offsetEnd=538182&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 65598,
+      "src_trs_end": 66708,
+      "dst_doc_id": "1719900300",
+      "dst_trs_start": 483347,
+      "dst_trs_end": 484475,
+      "reuse_type": "Unattributed Reprint",
+      "src_trs_start_octavo": 65903,
+      "src_trs_end_octavo": 67013,
+      "dst_trs_start_octavo": 487004,
+      "dst_trs_end_octavo": 488132,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=65598&offsetEnd=66708&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1719900300&offsetStart=483347&offsetEnd=484475&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 188547,
+      "src_trs_end": 188873,
+      "dst_doc_id": "0899300403",
+      "dst_trs_start": 961058,
+      "dst_trs_end": 961387,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 189280,
+      "src_trs_end_octavo": 189606,
+      "dst_trs_start_octavo": 961460,
+      "dst_trs_end_octavo": 961789,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=188547&offsetEnd=188873&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0899300403&offsetStart=961058&offsetEnd=961387&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 66021,
+      "src_trs_end": 66710,
+      "dst_doc_id": "1654901100",
+      "dst_trs_start": 654578,
+      "dst_trs_end": 655298,
+      "reuse_type": "Unattributed Reprint",
+      "src_trs_start_octavo": 66326,
+      "src_trs_end_octavo": 67015,
+      "dst_trs_start_octavo": 654760,
+      "dst_trs_end_octavo": 655480,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=66021&offsetEnd=66710&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1654901100&offsetStart=654578&offsetEnd=655298&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "1070400201",
+      "src_trs_start": 555226,
+      "src_trs_end": 556103,
+      "dst_doc_id": "0383001020",
+      "dst_trs_start": 50477,
+      "dst_trs_end": 51434,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 556454,
+      "src_trs_end_octavo": 557331,
+      "dst_trs_start_octavo": 50477,
+      "dst_trs_end_octavo": 51434,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1070400201&offsetStart=555226&offsetEnd=556103&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0383001020&offsetStart=50477&offsetEnd=51434&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0302000100",
+      "src_trs_start": 425238,
+      "src_trs_end": 425776,
+      "dst_doc_id": "1266300500",
+      "dst_trs_start": 365642,
+      "dst_trs_end": 366187,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 425726,
+      "src_trs_end_octavo": 426264,
+      "dst_trs_start_octavo": 365693,
+      "dst_trs_end_octavo": 366238,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0302000100&offsetStart=425238&offsetEnd=425776&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1266300500&offsetStart=365642&offsetEnd=366187&isAlreadyOctavified=0"
+    },
+    {
+      "src_doc_id": "0255100701",
+      "src_trs_start": 102039,
+      "src_trs_end": 102797,
+      "dst_doc_id": "1142500202",
+      "dst_trs_start": 183757,
+      "dst_trs_end": 184527,
+      "reuse_type": "Attributed Reprint",
+      "src_trs_start_octavo": 102531,
+      "src_trs_end_octavo": 103289,
+      "dst_trs_start_octavo": 183905,
+      "dst_trs_end_octavo": 184675,
+      "src_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=0255100701&offsetStart=102039&offsetEnd=102797&isAlreadyOctavified=0",
+      "dst_url": "https://onko-sivu.2.rahtiapp.fi/ecco?docId=1142500202&offsetStart=183757&offsetEnd=184527&isAlreadyOctavified=0"
+    }
+  ]
+}
